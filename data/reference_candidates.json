@@ -1,0 +1,326 @@
+[
+  {
+    "question": "How does the 2027 proposed increase compare to 2026?",
+    "original": "The 15% proposed for 2027 is lower than 2026's 18% proposed and 20% finalized increase.",
+    "candidates": [
+      {
+        "text": "The median proposed premium increase for 2027 is 15%, which is lower than last year's (2026) median nationwide proposed rate change of 18% and median finalized rate change of 20%.",
+        "semantic": 0.6977307200431824
+      },
+      {
+        "text": "The 2027 proposed median premium increase of 15% is lower than last year's median nationwide proposed rate change of 18% and median finalized rate change of 20%.",
+        "semantic": 0.7285560369491577
+      }
+    ]
+  },
+  {
+    "question": "Which state avoided the enrollment drop in 2026, and why?",
+    "original": "New Mexico, which replaced expired federal subsidies with state funding and saw enrollment rise 14%.",
+    "candidates": [
+      {
+        "text": "New Mexico was the only state to see an increase in effectuated enrollment, growing 14% between 2025 and 2026, coinciding with the state's premium assistance program that fully replaced the expiring federal enhanced tax credits with state-funded subsidies.",
+        "semantic": 0.8068240880966187
+      },
+      {
+        "text": "New Mexico was the only state to see an increase in effectuated enrollment, growing 14% between 2025 and 2026, coinciding with the state's premium assistance program that fully replaced the expiring federal enhanced tax credits with state-funded subsidies.",
+        "semantic": 0.8068240880966187
+      }
+    ]
+  },
+  {
+    "question": "Did state-run Marketplaces fare better than federal HealthCare.gov states in 2026?",
+    "original": "Yes, state-based Marketplaces saw about a 6% enrollment decline on average, compared to a 15% decline in states using HealthCare.gov.",
+    "candidates": [
+      {
+        "text": "Yes, states that run their own Marketplaces generally maintained higher effectuation rates than states that use HealthCare.gov. State-based Marketplaces also experienced a 6% decline in effectuated enrollment from 2025 to 2026, compared to a 15% decline for states using the HealthCare.gov platform.",
+        "semantic": 0.8751965165138245
+      },
+      {
+        "text": "Yes, states that run their own Marketplaces generally maintained higher effectuation rates than states that use HealthCare.gov. State-based Marketplaces also experienced a 6% decline in effectuated enrollment from 2025 to 2026, compared to a 15% decline for states that use the HealthCare.gov platform.",
+        "semantic": 0.8753201365470886
+      }
+    ]
+  },
+  {
+    "question": "How do non-expansion states compare to expansion states on uninsured rates?",
+    "original": "Non-expansion states have a 14.5% uninsured rate, nearly double the 8.0% rate in states that expanded Medicaid.",
+    "candidates": [
+      {
+        "text": "The uninsured rate in non-expansion states (14.5%) was nearly twice the rate in expansion states (8.0%).",
+        "semantic": 0.8925843238830566
+      },
+      {
+        "text": "The uninsured rate in non-expansion states (14.5%) was nearly twice the rate in expansion states (8.0%).",
+        "semantic": 0.8925843238830566
+      }
+    ]
+  },
+  {
+    "question": "What did the KFF poll find about fraud as a midterm issue?",
+    "original": "55% of Republican voters say fraud in health programs is extremely important for candidates to address, versus 51% overall who prioritize health costs.",
+    "candidates": [
+      {
+        "text": "More than half (55%) of Republican voters say it is extremely important for candidates to discuss the issue of fraud in government health programs.",
+        "semantic": 0.9214338660240173
+      },
+      {
+        "text": "More than half (55%) of Republican voters say it is extremely important for candidates to discuss the issue of fraud in government health programs for the midterm elections. For independent voters, fraud in health programs is 42%.",
+        "semantic": 0.9316390156745911
+      }
+    ]
+  },
+  {
+    "question": "Who do voters think commits most Medicare/Medicaid fraud?",
+    "original": "About 53% blame providers for Medicare fraud, and 49% blame providers for Medicaid fraud.",
+    "candidates": [
+      {
+        "text": "health care providers. About half of voters overall say Medicare fraud is mostly carried out by providers (53%), and for Medicaid, about half of voters say providers are the main perpetrators of fraud (49%).",
+        "semantic": 0.7988672256469727
+      },
+      {
+        "text": "Health care providers. About half of voters overall say Medicare fraud is mostly carried out by providers (53%), and about half of voters say providers are the main perpetrators of fraud in Medicaid (49%).",
+        "semantic": 0.8043707013130188
+      }
+    ]
+  },
+  {
+    "question": "Do voters prioritize fighting fraud or protecting Medicaid access?",
+    "original": "71% of voters say protecting access to care should be the priority over preventing fraud, while 28% say the opposite.",
+    "candidates": [
+      {
+        "text": "Most voters prioritize protecting access to care for eligible people over rooting out fraud. Seven in ten voters (71%) say the higher priority for managing the Medicaid program should be ensuring that eligible people have access to the care they need, even if it means some fraud may occur.",
+        "semantic": 0.7674045562744141
+      },
+      {
+        "text": "Most voters prioritize protecting access to care for Medicaid enrollees. Seven in ten voters (71%) say the higher priority for managing the Medicaid program should be ensuring that eligible people have access to the care they need, even if it means some fraud may occur.",
+        "semantic": 0.7278013229370117
+      }
+    ]
+  },
+  {
+    "question": "What do voters think about federal Medicaid payment deferrals aimed at fraud?",
+    "original": "Only 43% think federal Medicaid payment deferrals will save money, while 77% believe they'll cause eligible people to lose care.",
+    "candidates": [
+      {
+        "text": "Most voters say the deferrals are likely to cause eligible low-income people to lose access to care they rely on. Fewer than half (43%) say these deferrals are likely to save taxpayers money, and 31% say they are likely to lower health care costs for people like them.",
+        "semantic": 0.7041849493980408
+      }
+    ]
+  },
+  {
+    "question": "Why were MLR rebates so high in 2020-2021?",
+    "original": "Rebates hit record highs of $2.5 billion in 2020 and $2.1 billion in 2021, driven by high margins after 2018 premium hikes and lower pandemic-era care use.",
+    "candidates": [
+      {
+        "text": "Record-high rebate totals of $2.5 billion issued in 2020 and $2.1 billion issued in 2021 were driven largely by high margins in the 2018 ACA Marketplace following steep premium increases in response to the elimination of cost-sharing reduction payments, inflating the three-year average on which rebate calculations are based, as well as lower than expected utilization in 2020 due to the pandemic.",
+        "semantic": 0.8254127502441406
+      },
+      {
+        "text": "Record-high rebate totals of $2.5 billion issued in 2020 and $2.1 billion issued in 2021 were driven largely by high margins in the 2018 ACA Marketplace following steep premium increases in response to the elimination of cost-sharing reduction payments, inflating the three-year average on which rebate calculations are based, as well as lower than expected utilization in 2020 due to the pandemic.",
+        "semantic": 0.8254127502441406
+      }
+    ]
+  },
+  {
+    "question": "Why does U.S. health spending keep rising, per KFF's video?",
+    "original": "Mainly the rising cost of hospital care, physician and clinical services, and prescription drugs, which pushed health spending from 7% of GDP in 1971 to 18% in 2024.",
+    "candidates": [
+      {
+        "text": "National health spending has been on the rise in recent years, driven by the increasing cost of hospital care, physician and clinica.",
+        "semantic": 0.7801742553710938
+      },
+      {
+        "text": "National health spending has been on the rise in recent years, driven by the increasing cost of hospital care, physician and clinica.",
+        "semantic": 0.7801742553710938
+      }
+    ]
+  },
+  {
+    "question": "How did enrollees respond to higher costs after subsidies expired?",
+    "original": "About 3 in 10 enrollees switched to cheaper plans and roughly 1 in 10 dropped coverage and became uninsured.",
+    "candidates": [
+      {
+        "text": "One in ten (9%) 2025 Marketplace enrollees say they are now currently uninsured and three in ten (28%) say they switched to a different Marketplace plan. Most cited costs as the reason for their change.",
+        "semantic": 0.7773749828338623
+      }
+    ]
+  },
+  {
+    "question": "Which insurer's exit hit ACA Marketplace participation hardest?",
+    "original": "Aetna (CVS Health), which exited 17 states for 2026.",
+    "candidates": [
+      {
+        "text": "Aetna CVS. The drop in insurer participation in 2026 is primarily driven by the exit of Aetna CVS from 17 states.",
+        "semantic": 0.7782720923423767
+      },
+      {
+        "text": "Aetna CVS. This drop in 2026 is primarily driven by the exit of Aetna CVS from 17 states.",
+        "semantic": 0.8063927888870239
+      }
+    ]
+  },
+  {
+    "question": "What's the top reason people give for being uninsured?",
+    "original": "61.7% of uninsured adults cite unaffordable coverage as their main reason for lacking insurance.",
+    "candidates": [
+      {
+        "text": "Inability to afford coverage is the most commonly cited reason for being uninsured.",
+        "semantic": 0.7419410347938538
+      },
+      {
+        "text": "Inability to afford coverage is the most commonly cited reason for being uninsured.",
+        "semantic": 0.7419410347938538
+      }
+    ]
+  },
+  {
+    "question": "How does being uninsured affect access to care?",
+    "original": "38.6% of uninsured adults delayed or skipped care due to cost in 2024, more than twice the 17.0% rate among privately insured adults.",
+    "candidates": [
+      {
+        "text": "People without insurance coverage are less likely to access care and more likely to delay or forgo care because of costs. In 2024, nearly four in ten uninsured adults (38.6%) reported delaying, skipping, or not getting needed care or medication due to cost.",
+        "semantic": 0.8407796621322632
+      },
+      {
+        "text": "People without insurance coverage are less likely to access care and more likely to delay or forgo care because of costs. In 2024, nearly four in ten uninsured adults (38.6%) reported delaying, skipping, or not getting needed care or medication due to cost.",
+        "semantic": 0.8407796621322632
+      }
+    ]
+  },
+  {
+    "question": "What financial hardships are common among the uninsured?",
+    "original": "34% of uninsured adults have medical debt, and 59% struggle to cover a $2,000 unexpected expense.",
+    "candidates": [
+      {
+        "text": "Uninsured adults are nearly twice as likely as insured adults to have difficulty paying health care costs. They are also more likely to experience financial distress, including overdrawing their checking account, having been contacted by a debt collection agency, and having used pay day loans.",
+        "semantic": 0.7197951078414917
+      },
+      {
+        "text": "Uninsured adults are nearly twice as likely as insured adults to have difficulty paying health care costs. They are also more likely to experience measures of financial distress, including overdrawing their checking account, having been contacted by a debt collection agency, and having used pay day loans.",
+        "semantic": 0.7210553884506226
+      }
+    ]
+  },
+  {
+    "question": "Are most uninsured people eligible for financial help under the ACA?",
+    "original": "About 52.9%, or 14.1 million uninsured people, are estimated to be eligible for Medicaid or Marketplace subsidies but remain unenrolled.",
+    "candidates": [
+      {
+        "text": "Yes, just over half (52.9% or 14.1 million) of uninsured individuals in 2024 were estimated to be eligible for financial assistance.",
+        "semantic": 0.7806294560432434
+      },
+      {
+        "text": "Yes, just over half (52.9% or 14.1 million) of uninsured individuals in 2024 were estimated to be eligible for financial assistance.",
+        "semantic": 0.7806294560432434
+      }
+    ]
+  },
+  {
+    "question": "Are racial disparities present in uninsured rates?",
+    "original": "Yes, American Indian/Alaska Native and Hispanic people have uninsured rates around 18-19%, versus 6.8% for White people.",
+    "candidates": [
+      {
+        "text": "Yes, racial disparities are present in uninsured rates. Hispanic, Black, AIAN, and NHPI people are more likely to be uninsured than White people.",
+        "semantic": 0.8782011866569519
+      },
+      {
+        "text": "Yes, racial disparities are present in uninsured rates. Hispanic, Black, AIAN, and NHPI people are more likely to be uninsured than White people.",
+        "semantic": 0.8782011866569519
+      }
+    ]
+  },
+  {
+    "question": "How long do most uninsured people typically lack coverage?",
+    "original": "69.4% of uninsured adults have lacked coverage for over a year, and about 26% for ten or more years or never at all.",
+    "candidates": [
+      {
+        "text": "Most uninsured adults have been without health coverage for more than a year. Nearly seven in ten (69.4%) adults who were uninsured in 2024 had gone without health coverage for more than a year.",
+        "semantic": 0.84189772605896
+      },
+      {
+        "text": "Most uninsured adults have been without health coverage for more than a year.",
+        "semantic": 0.8167010545730591
+      }
+    ]
+  },
+  {
+    "question": "How much are Medicaid work requirements expected to increase the uninsured population?",
+    "original": "The CBO estimates Medicaid work requirements alone will increase the uninsured population by 5.3 million over the next ten years.",
+    "candidates": [
+      {
+        "text": "Medicaid work requirements will increase the number of uninsured individuals by 5.3 million over the next ten years.",
+        "semantic": 0.8982382416725159
+      },
+      {
+        "text": "Medicaid work requirements will increase the number of uninsured individuals by 5.3 million over the next ten years.",
+        "semantic": 0.8982382416725159
+      }
+    ]
+  },
+  {
+    "question": "In which government fraud category do voters perceive the most fraud, and what percentage?",
+    "original": "The federal tax system, with 52% of voters saying there is 'a lot' of fraud there.",
+    "candidates": [
+      {
+        "text": "The federal tax system, with 52% of voters saying there is “a lot” of fraud.",
+        "semantic": 0.9682509303092957
+      },
+      {
+        "text": "The federal tax system, with 52% of voters saying there is “a lot” of fraud.",
+        "semantic": 0.9682509303092957
+      }
+    ]
+  },
+  {
+    "question": "How do Republicans and Democrats differ in perceiving Medicaid fraud?",
+    "original": "62% of Republicans believe Medicaid fraud is prevalent, compared to just 21% of Democrats.",
+    "candidates": [
+      {
+        "text": "Republican voters are more likely (62%) than Democratic voters (21%) to say there is a lot of fraud in Medicaid.",
+        "semantic": 0.9073448181152344
+      },
+      {
+        "text": "Republican voters are more likely (62%) than Democratic voters (21%) to say there is a lot of fraud in Medicaid.",
+        "semantic": 0.9073448181152344
+      }
+    ]
+  },
+  {
+    "question": "How many people responded to the KFF poll on health costs and fraud, and when was it conducted?",
+    "original": "1,321 U.S. adults were surveyed between June 25-30, 2026, with a margin of error of ±3 percentage points.",
+    "candidates": [
+      {
+        "text": "1,321 U.S. adults responded to the survey, which was conducted June 25 – June 30, 2026.",
+        "semantic": 0.8552635908126831
+      }
+    ]
+  },
+  {
+    "question": "How does U.S. per-person health spending in 2024 compare to other wealthy countries?",
+    "original": "The U.S. spent $14,775 per person, 88% more than the $7,860 average in other high-income countries.",
+    "candidates": [
+      {
+        "text": "In 2024, the U.S. spent $14,775 per person on health care compared to $7,860 per person in other high-income countries, which is 88% higher than other large, wealthy countries.",
+        "semantic": 0.7104718685150146
+      },
+      {
+        "text": "In 2024, the U.S. spent $14,775 per person on health care compared to $7,860 per person in other high-income countries, which is 88% higher than other large, wealthy countries.",
+        "semantic": 0.7104718685150146
+      }
+    ]
+  },
+  {
+    "question": "Which U.S. presidents have raised alarms about unsustainable health care costs, according to KFF?",
+    "original": "Nixon in 1971, Clinton in 1992, and Obama in 2009.",
+    "candidates": [
+      {
+        "text": "President Barack Obama, President Bill Clinton, and President Richard Nixon.",
+        "semantic": 0.7544058561325073
+      },
+      {
+        "text": "President Barack Obama, President Bill Clinton, and President Richard Nixon.",
+        "semantic": 0.7544058561325073
+      }
+    ]
+  }
+]

@@ -1,0 +1,3 @@
+streamlit run streamlit_main.py
+cloudflared tunnel --url http://localhost:8501
+Te va a imprimir una URL tipo https://<palabras-random>.trycloudflare.com — esa es la que compartís. Para desactivar, simplemente cerrás esa terminal (Ctrl+C) o matás el proceso cloudflared.exe; la app local sigue corriendo en tu máquina, pero deja de ser accesible desde afuera.

@@ -1,0 +1,730 @@
+[
+  {
+    "question": "Why are ACA Marketplace insurers proposing large premium increases for 2027?",
+    "expected": "15%, mainly due to rising health care costs and the expiration of enhanced tax credits.",
+    "observed": "The context does not contain enough information to answer this question.",
+    "f1": 0.08333333333333333,
+    "rougeL": 0.07692307692307691,
+    "semantic": 0.12886033952236176,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "15%, mainly due to rising health care costs and the expiration of enhanced tax credits.",
+      "rougeL": "15%, mainly due to rising health care costs and the expiration of enhanced tax credits.",
+      "semantic": "15%, mainly due to rising health care costs and the expiration of enhanced tax credits."
+    }
+  },
+  {
+    "question": "How does the 2027 proposed increase compare to 2026?",
+    "expected": "The 15% proposed for 2027 is lower than 2026's 18% proposed and 20% finalized increase.",
+    "observed": "The 2027 proposed rate change of 15% is lower than last year's median nationwide proposed rate change of 18%.",
+    "f1": 0.8181818181818181,
+    "rougeL": 0.75,
+    "semantic": 0.8364902138710022,
+    "n_references": 3,
+    "best_reference": {
+      "f1": "The 2027 proposed median premium increase of 15% is lower than last year's median nationwide proposed rate change of 18% and median finalized rate change of 20%.",
+      "rougeL": "The 2027 proposed median premium increase of 15% is lower than last year's median nationwide proposed rate change of 18% and median finalized rate change of 20%.",
+      "semantic": "The 2027 proposed median premium increase of 15% is lower than last year's median nationwide proposed rate change of 18% and median finalized rate change of 20%."
+    }
+  },
+  {
+    "question": "What happened to ACA Marketplace enrollment in 2026?",
+    "expected": "It fell about 12%, from 21.8 million in 2025 to 19.2 million in 2026.",
+    "observed": "Enrollment declined by nearly three million people between 2025 and 2026. This was the first time enrollment fell in seven years.",
+    "f1": 0.2941176470588235,
+    "rougeL": 0.16216216216216214,
+    "semantic": 0.46441376209259033,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "It fell about 12%, from 21.8 million in 2025 to 19.2 million in 2026.",
+      "rougeL": "It fell about 12%, from 21.8 million in 2025 to 19.2 million in 2026.",
+      "semantic": "It fell about 12%, from 21.8 million in 2025 to 19.2 million in 2026."
+    }
+  },
+  {
+    "question": "Which state avoided the enrollment drop in 2026, and why?",
+    "expected": "New Mexico, which replaced expired federal subsidies with state funding and saw enrollment rise 14%.",
+    "observed": "New Mexico was the only state to see an increase in effectuated enrollment, growing 14% between 2025 and 2026, coinciding with the state's premium assistance program that fully replaced the expiring federal enhanced tax credits with state-funded subsidies.",
+    "f1": 1.0,
+    "rougeL": 1.0,
+    "semantic": 1.0,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "New Mexico was the only state to see an increase in effectuated enrollment, growing 14% between 2025 and 2026, coinciding with the state's premium assistance program that fully replaced the expiring federal enhanced tax credits with state-funded subsidies.",
+      "rougeL": "New Mexico was the only state to see an increase in effectuated enrollment, growing 14% between 2025 and 2026, coinciding with the state's premium assistance program that fully replaced the expiring federal enhanced tax credits with state-funded subsidies.",
+      "semantic": "New Mexico was the only state to see an increase in effectuated enrollment, growing 14% between 2025 and 2026, coinciding with the state's premium assistance program that fully replaced the expiring federal enhanced tax credits with state-funded subsidies."
+    }
+  },
+  {
+    "question": "Did state-run Marketplaces fare better than federal HealthCare.gov states in 2026?",
+    "expected": "Yes, state-based Marketplaces saw about a 6% enrollment decline on average, compared to a 15% decline in states using HealthCare.gov.",
+    "observed": "Yes, state-based Marketplaces generally saw lower drops in enrollment and maintained higher effectuation rates than states that use HealthCare.gov in 2026. State-based Marketplaces experienced a 6% decline in effectuated enrollment, while HealthCare.gov platforms saw a 15% decline.",
+    "f1": 0.6486486486486486,
+    "rougeL": 0.6046511627906976,
+    "semantic": 0.9436680674552917,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Yes, states that run their own Marketplaces generally maintained higher effectuation rates than states that use HealthCare.gov. State-based Marketplaces also experienced a 6% decline in effectuated enrollment from 2025 to 2026, compared to a 15% decline for states using the HealthCare.gov platform.",
+      "rougeL": "Yes, states that run their own Marketplaces generally maintained higher effectuation rates than states that use HealthCare.gov. State-based Marketplaces also experienced a 6% decline in effectuated enrollment from 2025 to 2026, compared to a 15% decline for states using the HealthCare.gov platform.",
+      "semantic": "Yes, states that run their own Marketplaces generally maintained higher effectuation rates than states that use HealthCare.gov. State-based Marketplaces also experienced a 6% decline in effectuated enrollment from 2025 to 2026, compared to a 15% decline for states using the HealthCare.gov platform."
+    }
+  },
+  {
+    "question": "What is the 'effectuation rate' and what happened to it in 2026?",
+    "expected": "The share of enrollees who keep paying for coverage after signing up. It fell from 90% in 2025 to 83% in 2026.",
+    "observed": "The effectuation rate is the share of people who signed up for coverage during open enrollment who maintained their coverage. Nationwide, the February effectuation rate fell from 90% in 2025 to 83% in 2026.",
+    "f1": 0.7076923076923077,
+    "rougeL": 0.7222222222222222,
+    "semantic": 0.903922438621521,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "The effectuation rate is the rate at which people who initially signed up for a plan kept their coverage by making their premium payments. Nationwide, the February effectuation rate fell from 90% in 2025 to 83% in 2026.",
+      "rougeL": "The effectuation rate is the rate at which people who initially signed up for a plan kept their coverage by making their premium payments. Nationwide, the February effectuation rate fell from 90% in 2025 to 83% in 2026.",
+      "semantic": "The effectuation rate is the rate at which people who initially signed up for a plan kept their coverage by making their premium payments. Nationwide, the February effectuation rate fell from 90% in 2025 to 83% in 2026."
+    }
+  },
+  {
+    "question": "What is the Medicaid 'coverage gap'?",
+    "expected": "Adults who earn too much to qualify for Medicaid but too little to qualify for ACA Marketplace subsidies.",
+    "observed": "The coverage gap exists because not all states have adopted the ACA’s Medicaid expansion.",
+    "f1": 0.06666666666666667,
+    "rougeL": 0.0606060606060606,
+    "semantic": 0.5272882580757141,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "Adults who earn too much to qualify for Medicaid but too little to qualify for ACA Marketplace subsidies.",
+      "rougeL": "Adults who earn too much to qualify for Medicaid but too little to qualify for ACA Marketplace subsidies.",
+      "semantic": "Adults who earn too much to qualify for Medicaid but too little to qualify for ACA Marketplace subsidies."
+    }
+  },
+  {
+    "question": "Who typically falls into the Medicaid coverage gap?",
+    "expected": "About 78% are adults without dependent children, and 56% are Hispanic or Black.",
+    "observed": "Adults whose incomes are too high for their states’ Medicaid program but too low to qualify for ACA Marketplace subsidies typically fall into the Medicaid coverage gap. Many of these adults work or live with someone who works, are disproportionally people of color, and generally do not have dependent children.",
+    "f1": 0.2258064516129032,
+    "rougeL": 0.126984126984127,
+    "semantic": 0.5182347893714905,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "About 78% are adults without dependent children, and 56% are Hispanic or Black.",
+      "rougeL": "About 78% are adults without dependent children, and 56% are Hispanic or Black.",
+      "semantic": "About 78% are adults without dependent children, and 56% are Hispanic or Black."
+    }
+  },
+  {
+    "question": "Is the coverage gap expected to shrink soon?",
+    "expected": "No. The 2025 reconciliation law removed incentives for expansion, making it unlikely more of the 10 remaining non-expansion states will adopt it.",
+    "observed": "No, the number of adults in the coverage gap is not expected to decline further. The number of adults in the coverage gap is unlikely to change substantially in the coming years.",
+    "f1": 0.12765957446808512,
+    "rougeL": 0.14545454545454545,
+    "semantic": 0.2966637909412384,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "No. The 2025 reconciliation law removed incentives for expansion, making it unlikely more of the 10 remaining non-expansion states will adopt it.",
+      "rougeL": "No. The 2025 reconciliation law removed incentives for expansion, making it unlikely more of the 10 remaining non-expansion states will adopt it.",
+      "semantic": "No. The 2025 reconciliation law removed incentives for expansion, making it unlikely more of the 10 remaining non-expansion states will adopt it."
+    }
+  },
+  {
+    "question": "How do non-expansion states compare to expansion states on uninsured rates?",
+    "expected": "Non-expansion states have a 14.5% uninsured rate, nearly double the 8.0% rate in states that expanded Medicaid.",
+    "observed": "The uninsured rate in non-expansion states was 14.5% compared to 8.0% in expansion states. Individuals living in non-expansion states are nearly twice as likely as those in expansion states to be uninsured.",
+    "f1": 0.5777777777777778,
+    "rougeL": 0.509090909090909,
+    "semantic": 0.921289324760437,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "The uninsured rate in non-expansion states (14.5%) was nearly twice the rate in expansion states (8.0%).",
+      "rougeL": "The uninsured rate in non-expansion states (14.5%) was nearly twice the rate in expansion states (8.0%).",
+      "semantic": "The uninsured rate in non-expansion states (14.5%) was nearly twice the rate in expansion states (8.0%)."
+    }
+  },
+  {
+    "question": "What did the KFF poll find about fraud as a midterm issue?",
+    "expected": "55% of Republican voters say fraud in health programs is extremely important for candidates to address, versus 51% overall who prioritize health costs.",
+    "observed": "Fraud tops Republicans’ list as a midterm issue. More than half (55%) of Republican voters say it is extremely important for candidates to discuss the issue of fraud in government health programs.",
+    "f1": 0.8679245283018869,
+    "rougeL": 0.8571428571428571,
+    "semantic": 0.8995805382728577,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "More than half (55%) of Republican voters say it is extremely important for candidates to discuss the issue of fraud in government health programs.",
+      "rougeL": "More than half (55%) of Republican voters say it is extremely important for candidates to discuss the issue of fraud in government health programs.",
+      "semantic": "More than half (55%) of Republican voters say it is extremely important for candidates to discuss the issue of fraud in government health programs."
+    }
+  },
+  {
+    "question": "Who do voters think commits most Medicare/Medicaid fraud?",
+    "expected": "About 53% blame providers for Medicare fraud, and 49% blame providers for Medicaid fraud.",
+    "observed": "Voters are more likely to say health care providers – including private doctors’ offices and hospital systems – rather than individual patients. About half of voters overall say Medicare fraud is mostly carried out by providers (53%) compared to 13% by individual patients, and for Medicaid, about half of voters say providers are the main perpetrators of fraud (49%) compared to 18% by individual patients.",
+    "f1": 0.6597938144329897,
+    "rougeL": 0.6597938144329897,
+    "semantic": 0.9437224268913269,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Health care providers. About half of voters overall say Medicare fraud is mostly carried out by providers (53%), and about half of voters say providers are the main perpetrators of fraud in Medicaid (49%).",
+      "rougeL": "Health care providers. About half of voters overall say Medicare fraud is mostly carried out by providers (53%), and about half of voters say providers are the main perpetrators of fraud in Medicaid (49%).",
+      "semantic": "Health care providers. About half of voters overall say Medicare fraud is mostly carried out by providers (53%), and about half of voters say providers are the main perpetrators of fraud in Medicaid (49%)."
+    }
+  },
+  {
+    "question": "Do voters prioritize fighting fraud or protecting Medicaid access?",
+    "expected": "71% of voters say protecting access to care should be the priority over preventing fraud, while 28% say the opposite.",
+    "observed": "Most voters prioritize protecting access to care for eligible people over rooting out fraud. Seven in ten voters (71%) say the higher priority for managing the Medicaid program should be ensuring that eligible people have access to the care they need, even if it means some fraud may occur.",
+    "f1": 1.0,
+    "rougeL": 1.0,
+    "semantic": 1.0,
+    "n_references": 3,
+    "best_reference": {
+      "f1": "Most voters prioritize protecting access to care for eligible people over rooting out fraud. Seven in ten voters (71%) say the higher priority for managing the Medicaid program should be ensuring that eligible people have access to the care they need, even if it means some fraud may occur.",
+      "rougeL": "Most voters prioritize protecting access to care for eligible people over rooting out fraud. Seven in ten voters (71%) say the higher priority for managing the Medicaid program should be ensuring that eligible people have access to the care they need, even if it means some fraud may occur.",
+      "semantic": "Most voters prioritize protecting access to care for eligible people over rooting out fraud. Seven in ten voters (71%) say the higher priority for managing the Medicaid program should be ensuring that eligible people have access to the care they need, even if it means some fraud may occur."
+    }
+  },
+  {
+    "question": "What do voters think about federal Medicaid payment deferrals aimed at fraud?",
+    "expected": "Only 43% think federal Medicaid payment deferrals will save money, while 77% believe they'll cause eligible people to lose care.",
+    "observed": "Voters are much more likely to say these actions will harm beneficiaries and unfairly target states based on politics than reduce fraud or lower costs. About three in four voters (77%) say funding delays would likely cause some eligible low-income people to lose access to health care services.",
+    "f1": 0.4842105263157895,
+    "rougeL": 0.30612244897959184,
+    "semantic": 0.626697301864624,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Most voters say the deferrals are likely to cause eligible low-income people to lose access to care they rely on. Fewer than half (43%) say these deferrals are likely to save taxpayers money, and 31% say they are likely to lower health care costs for people like them.",
+      "rougeL": "Most voters say the deferrals are likely to cause eligible low-income people to lose access to care they rely on. Fewer than half (43%) say these deferrals are likely to save taxpayers money, and 31% say they are likely to lower health care costs for people like them.",
+      "semantic": "Most voters say the deferrals are likely to cause eligible low-income people to lose access to care they rely on. Fewer than half (43%) say these deferrals are likely to save taxpayers money, and 31% say they are likely to lower health care costs for people like them."
+    }
+  },
+  {
+    "question": "What are Medical Loss Ratio (MLR) rebates?",
+    "expected": "Refunds insurers must pay when they don't spend at least 80% (individual/small group) or 85% (large group) of premiums on medical care.",
+    "observed": "MLR rebates are payments insurers are required to make to individuals and employers that purchased coverage if they fail to meet the applicable MLR threshold. This occurs when insurers keep too much of their premium income for administration, marketing, and profits, exceeding the limits set by the ACA.",
+    "f1": 0.11940298507462685,
+    "rougeL": 0.08333333333333333,
+    "semantic": 0.4583609104156494,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "Refunds insurers must pay when they don't spend at least 80% (individual/small group) or 85% (large group) of premiums on medical care.",
+      "rougeL": "Refunds insurers must pay when they don't spend at least 80% (individual/small group) or 85% (large group) of premiums on medical care.",
+      "semantic": "Refunds insurers must pay when they don't spend at least 80% (individual/small group) or 85% (large group) of premiums on medical care."
+    }
+  },
+  {
+    "question": "How do 2026 MLR rebates compare to recent years?",
+    "expected": "Insurers expect to pay about $759 million in 2026, down from $958 million in 2024 and $1.6 billion in 2025.",
+    "observed": "Estimated total rebates across all commercial markets in 2026 ($759 million) are less than total rebates issued in 2024 ($958 million) and in 2025 ($1.6 billion).",
+    "f1": 0.5652173913043479,
+    "rougeL": 0.375,
+    "semantic": 0.44875267148017883,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "Insurers expect to pay about $759 million in 2026, down from $958 million in 2024 and $1.6 billion in 2025.",
+      "rougeL": "Insurers expect to pay about $759 million in 2026, down from $958 million in 2024 and $1.6 billion in 2025.",
+      "semantic": "Insurers expect to pay about $759 million in 2026, down from $958 million in 2024 and $1.6 billion in 2025."
+    }
+  },
+  {
+    "question": "Why were MLR rebates so high in 2020-2021?",
+    "expected": "Rebates hit record highs of $2.5 billion in 2020 and $2.1 billion in 2021, driven by high margins after 2018 premium hikes and lower pandemic-era care use.",
+    "observed": "Record-high rebate totals of $2.5 billion issued in 2020 and $2.1 billion issued in 2021 were driven largely by high margins.",
+    "f1": 0.5833333333333334,
+    "rougeL": 0.6296296296296297,
+    "semantic": 0.8766846656799316,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Rebates hit record highs of $2.5 billion in 2020 and $2.1 billion in 2021, driven by high margins after 2018 premium hikes and lower pandemic-era care use.",
+      "rougeL": "Rebates hit record highs of $2.5 billion in 2020 and $2.1 billion in 2021, driven by high margins after 2018 premium hikes and lower pandemic-era care use.",
+      "semantic": "Rebates hit record highs of $2.5 billion in 2020 and $2.1 billion in 2021, driven by high margins after 2018 premium hikes and lower pandemic-era care use."
+    }
+  },
+  {
+    "question": "Why does U.S. health spending keep rising, per KFF's video?",
+    "expected": "Mainly the rising cost of hospital care, physician and clinical services, and prescription drugs, which pushed health spending from 7% of GDP in 1971 to 18% in 2024.",
+    "observed": "National health spending has been on the rise in recent years, driven by the increasing cost of hospital care, physician and clinical services, and prescription drugs.",
+    "f1": 1.0,
+    "rougeL": 1.0,
+    "semantic": 1.0,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "National health spending has been on the rise in recent years, driven by the increasing cost of hospital care, physician and clinical services, and prescription drugs.",
+      "rougeL": "National health spending has been on the rise in recent years, driven by the increasing cost of hospital care, physician and clinical services, and prescription drugs.",
+      "semantic": "National health spending has been on the rise in recent years, driven by the increasing cost of hospital care, physician and clinical services, and prescription drugs."
+    }
+  },
+  {
+    "question": "Did the ACA succeed at making health care more affordable?",
+    "expected": "It's mixed. Marketplace enrollment hit 24 million in 2025, but premium payments rose 58% on average in 2026 after subsidies expired.",
+    "observed": "The answer is complicated. Even with tax credits, the ACA faced criticism about not being affordable enough.",
+    "f1": 0.0,
+    "rougeL": 0.0,
+    "semantic": 0.40306103229522705,
+    "n_references": 1,
+    "best_reference": {
+      "f1": null,
+      "rougeL": null,
+      "semantic": "It's mixed. Marketplace enrollment hit 24 million in 2025, but premium payments rose 58% on average in 2026 after subsidies expired."
+    }
+  },
+  {
+    "question": "How did enrollees respond to higher costs after subsidies expired?",
+    "expected": "About 3 in 10 enrollees switched to cheaper plans and roughly 1 in 10 dropped coverage and became uninsured.",
+    "observed": "About one in 10 (9%) Marketplace enrollees dropped their ACA coverage and are now uninsured and another nearly three in 10 (28%) changed Marketplace plans, with most citing costs as the reason. Most Marketplace enrollees (67%) also said they would likely cut spending on basic household needs if their annual health costs increased by $1,000.",
+    "f1": 0.4367816091954023,
+    "rougeL": 0.41758241758241754,
+    "semantic": 0.7931103706359863,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "One in ten (9%) 2025 Marketplace enrollees say they are now currently uninsured and three in ten (28%) say they switched to a different Marketplace plan. Most cited costs as the reason for their change.",
+      "rougeL": "One in ten (9%) 2025 Marketplace enrollees say they are now currently uninsured and three in ten (28%) say they switched to a different Marketplace plan. Most cited costs as the reason for their change.",
+      "semantic": "One in ten (9%) 2025 Marketplace enrollees say they are now currently uninsured and three in ten (28%) say they switched to a different Marketplace plan. Most cited costs as the reason for their change."
+    }
+  },
+  {
+    "question": "What's driving up underlying medical costs cited in 2027 rate filings?",
+    "expected": "The cost of medical care and drugs is projected to rise about 10% for 2027, compared to an 8% average in recent years.",
+    "observed": "The rising cost of health services, driven by the cost of hospitalizations, physician visits, and prescription drugs—including GLP-1s and other specialty medications. Labor shortages and general economic inflation have also driven up provider wages and costs.",
+    "f1": 0.10909090909090909,
+    "rougeL": 0.16393442622950818,
+    "semantic": 0.5855132341384888,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "The cost of medical care and drugs is projected to rise about 10% for 2027, compared to an 8% average in recent years.",
+      "rougeL": "The cost of medical care and drugs is projected to rise about 10% for 2027, compared to an 8% average in recent years.",
+      "semantic": "The cost of medical care and drugs is projected to rise about 10% for 2027, compared to an 8% average in recent years."
+    }
+  },
+  {
+    "question": "Are most enrollees exposed to the full 2027 premium increases?",
+    "expected": "No, most still qualify for subsidies; only people earning 400% or more of the federal poverty level (about $62,600 for a single person) face the full increase.",
+    "observed": "Without the enhanced premium tax credits, premium payments increased substantially for most subsidized enrollees, and some middle-income enrollees who previously qualified for subsidies faced the full cost of coverage for the first time.",
+    "f1": 0.22222222222222224,
+    "rougeL": 0.1935483870967742,
+    "semantic": 0.5320206880569458,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "No, most still qualify for subsidies; only people earning 400% or more of the federal poverty level (about $62,600 for a single person) face the full increase.",
+      "rougeL": "No, most still qualify for subsidies; only people earning 400% or more of the federal poverty level (about $62,600 for a single person) face the full increase.",
+      "semantic": "No, most still qualify for subsidies; only people earning 400% or more of the federal poverty level (about $62,600 for a single person) face the full increase."
+    }
+  },
+  {
+    "question": "Which insurer's exit hit ACA Marketplace participation hardest?",
+    "expected": "Aetna (CVS Health), which exited 17 states for 2026.",
+    "observed": "The context does not contain enough information to answer which insurer's exit hit ACA Marketplace participation hardest.",
+    "f1": 0.08,
+    "rougeL": 0.1111111111111111,
+    "semantic": 0.246686652302742,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Aetna (CVS Health), which exited 17 states for 2026.",
+      "rougeL": "Aetna CVS. This drop in 2026 is primarily driven by the exit of Aetna CVS from 17 states.",
+      "semantic": "Aetna (CVS Health), which exited 17 states for 2026."
+    }
+  },
+  {
+    "question": "Why are insurers leaving the ACA Marketplaces for 2027?",
+    "expected": "Shrinking, sicker enrollment is reducing profitability for some insurers — 7 carriers announced exits for 2027 as of July 2026, versus 5 entries.",
+    "observed": "Insurers are leaving the ACA Marketplaces for 2027 due to the expiration of the enhanced premium tax credits at the end of 2025, which drove sign-ups to fall by over a million from the 2025 to 2026 Open Enrollment Periods. These enrollment declines affect the size of the potential market for insurers and can lead them to reassess the profitability of their participation.",
+    "f1": 0.20779220779220778,
+    "rougeL": 0.11627906976744184,
+    "semantic": 0.6316861510276794,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "Shrinking, sicker enrollment is reducing profitability for some insurers — 7 carriers announced exits for 2027 as of July 2026, versus 5 entries.",
+      "rougeL": "Shrinking, sicker enrollment is reducing profitability for some insurers — 7 carriers announced exits for 2027 as of July 2026, versus 5 entries.",
+      "semantic": "Shrinking, sicker enrollment is reducing profitability for some insurers — 7 carriers announced exits for 2027 as of July 2026, versus 5 entries."
+    }
+  },
+  {
+    "question": "What happens to consumer choice when insurers exit a market?",
+    "expected": "165 counties now have only one ACA insurer offering plans in 2026, up from 93 counties in 2025.",
+    "observed": "consumers will be left with fewer choices.",
+    "f1": 0.0,
+    "rougeL": 0.0,
+    "semantic": 0.2916645407676697,
+    "n_references": 1,
+    "best_reference": {
+      "f1": null,
+      "rougeL": null,
+      "semantic": "165 counties now have only one ACA insurer offering plans in 2026, up from 93 counties in 2025."
+    }
+  },
+  {
+    "question": "Why did the uninsured rate rise in 2024?",
+    "expected": "Mainly due to Medicaid disenrollments, which pushed the uninsured population up by 1.3 million to 26.7 million.",
+    "observed": "A decline in Medicaid coverage drove the increase in the uninsured rate in 2024.",
+    "f1": 1.0,
+    "rougeL": 1.0,
+    "semantic": 0.9999999403953552,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "A decline in Medicaid coverage drove the increase in the uninsured rate in 2024.",
+      "rougeL": "A decline in Medicaid coverage drove the increase in the uninsured rate in 2024.",
+      "semantic": "A decline in Medicaid coverage drove the increase in the uninsured rate in 2024."
+    }
+  },
+  {
+    "question": "What's the top reason people give for being uninsured?",
+    "expected": "61.7% of uninsured adults cite unaffordable coverage as their main reason for lacking insurance.",
+    "observed": "The high cost of insurance is the main reason many people are uninsured. In 2024, 61.7% of uninsured adults ages 18-64 said they were uninsured because coverage is not affordable.",
+    "f1": 0.7017543859649122,
+    "rougeL": 0.71875,
+    "semantic": 0.954305112361908,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Inability to afford coverage is the most commonly cited reason for being uninsured. In 2024, 61.7% of uninsured adults ages 18-64 said they were uninsured because coverage is not affordable.",
+      "rougeL": "Inability to afford coverage is the most commonly cited reason for being uninsured. In 2024, 61.7% of uninsured adults ages 18-64 said they were uninsured because coverage is not affordable.",
+      "semantic": "Inability to afford coverage is the most commonly cited reason for being uninsured. In 2024, 61.7% of uninsured adults ages 18-64 said they were uninsured because coverage is not affordable."
+    }
+  },
+  {
+    "question": "How does being uninsured affect access to care?",
+    "expected": "38.6% of uninsured adults delayed or skipped care due to cost in 2024, more than twice the 17.0% rate among privately insured adults.",
+    "observed": "People without insurance coverage are less likely to access care and more likely to delay or forgo care because of costs. In 2024, nearly four in ten uninsured adults (38.6%) reported delaying, skipping, or not getting needed care or medication due to cost.",
+    "f1": 1.0,
+    "rougeL": 1.0,
+    "semantic": 1.000000238418579,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "People without insurance coverage are less likely to access care and more likely to delay or forgo care because of costs. In 2024, nearly four in ten uninsured adults (38.6%) reported delaying, skipping, or not getting needed care or medication due to cost.",
+      "rougeL": "People without insurance coverage are less likely to access care and more likely to delay or forgo care because of costs. In 2024, nearly four in ten uninsured adults (38.6%) reported delaying, skipping, or not getting needed care or medication due to cost.",
+      "semantic": "People without insurance coverage are less likely to access care and more likely to delay or forgo care because of costs. In 2024, nearly four in ten uninsured adults (38.6%) reported delaying, skipping, or not getting needed care or medication due to cost."
+    }
+  },
+  {
+    "question": "What financial hardships are common among the uninsured?",
+    "expected": "34% of uninsured adults have medical debt, and 59% struggle to cover a $2,000 unexpected expense.",
+    "observed": "Uninsured adults are nearly twice as likely as insured adults to have difficulty paying health care costs. They are also more likely to experience measures of financial distress, including overdrawing their checking account, having been contacted by a debt collection agency, and having used pay day loans.",
+    "f1": 0.22950819672131148,
+    "rougeL": 0.15625,
+    "semantic": 0.7210554480552673,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "34% of uninsured adults have medical debt, and 59% struggle to cover a $2,000 unexpected expense.",
+      "rougeL": "34% of uninsured adults have medical debt, and 59% struggle to cover a $2,000 unexpected expense.",
+      "semantic": "34% of uninsured adults have medical debt, and 59% struggle to cover a $2,000 unexpected expense."
+    }
+  },
+  {
+    "question": "Are most uninsured people eligible for financial help under the ACA?",
+    "expected": "About 52.9%, or 14.1 million uninsured people, are estimated to be eligible for Medicaid or Marketplace subsidies but remain unenrolled.",
+    "observed": "Just over half (52.9% or 14.1 million) of uninsured individuals in 2024 were estimated to be eligible for financial assistance either through Medicaid or through subsidized Marketplace coverage.",
+    "f1": 0.8163265306122449,
+    "rougeL": 0.8301886792452831,
+    "semantic": 0.9091328382492065,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Yes, just over half (52.9% or 14.1 million) of uninsured individuals in 2024 were estimated to be eligible for financial assistance.",
+      "rougeL": "Yes, just over half (52.9% or 14.1 million) of uninsured individuals in 2024 were estimated to be eligible for financial assistance.",
+      "semantic": "Yes, just over half (52.9% or 14.1 million) of uninsured individuals in 2024 were estimated to be eligible for financial assistance."
+    }
+  },
+  {
+    "question": "Are racial disparities present in uninsured rates?",
+    "expected": "Yes, American Indian/Alaska Native and Hispanic people have uninsured rates around 18-19%, versus 6.8% for White people.",
+    "observed": "Yes, racial disparities are present in uninsured rates. Hispanic, Black, AIAN, and NHPI people are more likely to be uninsured than White people.",
+    "f1": 0.39999999999999997,
+    "rougeL": 0.27906976744186046,
+    "semantic": 0.8782011270523071,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "Yes, American Indian/Alaska Native and Hispanic people have uninsured rates around 18-19%, versus 6.8% for White people.",
+      "rougeL": "Yes, American Indian/Alaska Native and Hispanic people have uninsured rates around 18-19%, versus 6.8% for White people.",
+      "semantic": "Yes, American Indian/Alaska Native and Hispanic people have uninsured rates around 18-19%, versus 6.8% for White people."
+    }
+  },
+  {
+    "question": "How long do most uninsured people typically lack coverage?",
+    "expected": "69.4% of uninsured adults have lacked coverage for over a year, and about 26% for ten or more years or never at all.",
+    "observed": "Most uninsured adults have been without health coverage for more than a year. Nearly seven in ten (69.4%) adults who were uninsured in 2024 had gone without health coverage for more than a year.",
+    "f1": 1.0,
+    "rougeL": 1.0,
+    "semantic": 1.0,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Most uninsured adults have been without health coverage for more than a year. Nearly seven in ten (69.4%) adults who were uninsured in 2024 had gone without health coverage for more than a year.",
+      "rougeL": "Most uninsured adults have been without health coverage for more than a year. Nearly seven in ten (69.4%) adults who were uninsured in 2024 had gone without health coverage for more than a year.",
+      "semantic": "Most uninsured adults have been without health coverage for more than a year. Nearly seven in ten (69.4%) adults who were uninsured in 2024 had gone without health coverage for more than a year."
+    }
+  },
+  {
+    "question": "Will the uninsured population keep growing due to recent federal changes?",
+    "expected": "Yes, the CBO projects over 14 million more people uninsured by 2034 due to Medicaid work requirements and expiring Marketplace subsidies.",
+    "observed": "Yes, the number of uninsured people overall is expected to increase. The Congressional Budget Office has estimated that Medicaid and Marketplace policy changes in the 2025 reconciliation law, most notably new Medicaid work requirements for adults enrolled in the Medicaid expansion, along with the expiration of the Marketplace enhanced premium tax credits, will increase the number of people who are uninsured by 14 million over the next decade.",
+    "f1": 0.6666666666666666,
+    "rougeL": 0.6666666666666666,
+    "semantic": 0.9251976013183594,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Yes, the Congressional Budget Office has estimated that Medicaid and Marketplace policy changes in the 2025 reconciliation law will increase the number of people who are uninsured by 14 million over the next decade.",
+      "rougeL": "Yes, the Congressional Budget Office has estimated that Medicaid and Marketplace policy changes in the 2025 reconciliation law will increase the number of people who are uninsured by 14 million over the next decade.",
+      "semantic": "Yes, the Congressional Budget Office has estimated that Medicaid and Marketplace policy changes in the 2025 reconciliation law will increase the number of people who are uninsured by 14 million over the next decade."
+    }
+  },
+  {
+    "question": "How much are Medicaid work requirements expected to increase the uninsured population?",
+    "expected": "The CBO estimates Medicaid work requirements alone will increase the uninsured population by 5.3 million over the next ten years.",
+    "observed": "Medicaid work requirements will increase the number of uninsured individuals by 5.3 million over the next ten years.",
+    "f1": 1.0,
+    "rougeL": 1.0,
+    "semantic": 1.0000001192092896,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Medicaid work requirements will increase the number of uninsured individuals by 5.3 million over the next ten years.",
+      "rougeL": "Medicaid work requirements will increase the number of uninsured individuals by 5.3 million over the next ten years.",
+      "semantic": "Medicaid work requirements will increase the number of uninsured individuals by 5.3 million over the next ten years."
+    }
+  },
+  {
+    "question": "Which two states had the largest effectuated enrollment declines in 2026?",
+    "expected": "Ohio and Oklahoma, both with declines of over 32%.",
+    "observed": "South Carolina and Minnesota. South Carolina's effectuated enrollment fell 29%, and Minnesota's effectuated enrollment fell 28%.",
+    "f1": 0.08,
+    "rougeL": 0.07407407407407407,
+    "semantic": 0.4798574447631836,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "Ohio and Oklahoma, both with declines of over 32%.",
+      "rougeL": "Ohio and Oklahoma, both with declines of over 32%.",
+      "semantic": "Ohio and Oklahoma, both with declines of over 32%."
+    }
+  },
+  {
+    "question": "Which states had the smallest enrollment declines in 2026?",
+    "expected": "Illinois, Connecticut, Pennsylvania, Idaho, D.C., Massachusetts, and Texas all saw declines under 5%.",
+    "observed": "New Mexico was the only state to see an increase in effectuated enrollment. Illinois, Connecticut, Pennsylvania, Idaho, the District of Columbia, Massachusetts, and Texas held relatively flat or fell by less than 5%.",
+    "f1": 0.37209302325581395,
+    "rougeL": 0.3404255319148936,
+    "semantic": 0.5917931795120239,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "Illinois, Connecticut, Pennsylvania, Idaho, D.C., Massachusetts, and Texas all saw declines under 5%.",
+      "rougeL": "Illinois, Connecticut, Pennsylvania, Idaho, D.C., Massachusetts, and Texas all saw declines under 5%.",
+      "semantic": "Illinois, Connecticut, Pennsylvania, Idaho, D.C., Massachusetts, and Texas all saw declines under 5%."
+    }
+  },
+  {
+    "question": "Which state had the lowest effectuation rate in 2026, and what was it?",
+    "expected": "Mississippi, at 61%.",
+    "observed": "Mississippi had the lowest effectuation rate (61%) in 2026.",
+    "f1": 1.0,
+    "rougeL": 1.0,
+    "semantic": 1.0000001192092896,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Mississippi had the lowest effectuation rate (61%) in 2026.",
+      "rougeL": "Mississippi had the lowest effectuation rate (61%) in 2026.",
+      "semantic": "Mississippi had the lowest effectuation rate (61%) in 2026."
+    }
+  },
+  {
+    "question": "What do the nine states with state-funded subsidies have in common in 2026 enrollment data?",
+    "expected": "All nine saw below-average declines in effectuated enrollment.",
+    "observed": "All saw effectuation rates higher than the U.S. average.",
+    "f1": 0.25,
+    "rougeL": 0.3157894736842105,
+    "semantic": 0.4854104518890381,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "All nine saw below-average declines in effectuated enrollment.",
+      "rougeL": "All nine saw below-average declines in effectuated enrollment.",
+      "semantic": "All nine saw below-average declines in effectuated enrollment."
+    }
+  },
+  {
+    "question": "How much did ACA Marketplace plan selections (sign-ups) fall in 2026?",
+    "expected": "Plan selections fell by about 1 million, a 5% decline from the previous year.",
+    "observed": "Plan selections decreased by about one million (5%) from last year.",
+    "f1": 0.6956521739130435,
+    "rougeL": 0.64,
+    "semantic": 0.8813490867614746,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Plan selections fell by about 1 million, a 5% decline from the previous year.",
+      "rougeL": "Plan selections fell by about 1 million, a 5% decline from the previous year.",
+      "semantic": "Plan selections fell by about 1 million, a 5% decline from the previous year."
+    }
+  },
+  {
+    "question": "If all states adopted Medicaid expansion, how many uninsured adults would become newly eligible for Medicaid?",
+    "expected": "About 2.4 million: 1.2 million currently in the coverage gap, plus 1.2 million earning 100-138% of the federal poverty level.",
+    "observed": "Approximately 2.4 million uninsured adults would become eligible for Medicaid.",
+    "f1": 0.14285714285714285,
+    "rougeL": 0.17142857142857143,
+    "semantic": 0.4914400577545166,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "About 2.4 million: 1.2 million currently in the coverage gap, plus 1.2 million earning 100-138% of the federal poverty level.",
+      "rougeL": "About 2.4 million: 1.2 million currently in the coverage gap, plus 1.2 million earning 100-138% of the federal poverty level.",
+      "semantic": "About 2.4 million: 1.2 million currently in the coverage gap, plus 1.2 million earning 100-138% of the federal poverty level."
+    }
+  },
+  {
+    "question": "Which state has the lowest Medicaid eligibility threshold for parents among non-expansion states?",
+    "expected": "Texas, at just 15% of the federal poverty level (about $4,098 a year for a family of three).",
+    "observed": "Texas has the nation’s lowest eligibility threshold for parents at 15% FPL.",
+    "f1": 1.0,
+    "rougeL": 1.0,
+    "semantic": 1.0,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Texas has the nation’s lowest eligibility threshold for parents at 15% FPL.",
+      "rougeL": "Texas has the nation’s lowest eligibility threshold for parents at 15% FPL.",
+      "semantic": "Texas has the nation’s lowest eligibility threshold for parents at 15% FPL."
+    }
+  },
+  {
+    "question": "What is the median Medicaid eligibility threshold for parents across non-expansion states?",
+    "expected": "40% of the federal poverty level.",
+    "observed": "The median income limit for parents is 40% FPL in these states.",
+    "f1": 0.12500000000000003,
+    "rougeL": 0.1111111111111111,
+    "semantic": 0.5572319030761719,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "40% of the federal poverty level.",
+      "rougeL": "40% of the federal poverty level.",
+      "semantic": "40% of the federal poverty level."
+    }
+  },
+  {
+    "question": "Which two states have Medicaid work-requirement waivers despite not adopting full expansion?",
+    "expected": "Georgia and Wisconsin.",
+    "observed": "The context does not contain enough information to answer.",
+    "f1": 0.0,
+    "rougeL": 0.0,
+    "semantic": 0.030141793191432953,
+    "n_references": 1,
+    "best_reference": {
+      "f1": null,
+      "rougeL": null,
+      "semantic": "Georgia and Wisconsin."
+    }
+  },
+  {
+    "question": "In which government fraud category do voters perceive the most fraud, and what percentage?",
+    "expected": "The federal tax system, with 52% of voters saying there is 'a lot' of fraud there.",
+    "observed": "federal tax system (52%). About half of all voters say there is “a lot” of fraud in this area.",
+    "f1": 0.7272727272727273,
+    "rougeL": 0.7058823529411765,
+    "semantic": 0.9508737325668335,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "The federal tax system, with 52% of voters saying there is “a lot” of fraud.",
+      "rougeL": "The federal tax system, with 52% of voters saying there is “a lot” of fraud.",
+      "semantic": "The federal tax system, with 52% of voters saying there is 'a lot' of fraud there."
+    }
+  },
+  {
+    "question": "How do Republicans and Democrats differ in perceiving Medicaid fraud?",
+    "expected": "62% of Republicans believe Medicaid fraud is prevalent, compared to just 21% of Democrats.",
+    "observed": "Republican voters are more likely than Democratic voters to say fraud is carried out mostly by individual patients in Medicaid (27% vs. 14%).",
+    "f1": 0.6666666666666666,
+    "rougeL": 0.6046511627906976,
+    "semantic": 0.9437148571014404,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "Republican voters are more likely (62%) than Democratic voters (21%) to say there is a lot of fraud in Medicaid.",
+      "rougeL": "Republican voters are more likely (62%) than Democratic voters (21%) to say there is a lot of fraud in Medicaid.",
+      "semantic": "Republican voters are more likely (62%) than Democratic voters (21%) to say there is a lot of fraud in Medicaid."
+    }
+  },
+  {
+    "question": "How many people responded to the KFF poll on health costs and fraud, and when was it conducted?",
+    "expected": "1,321 U.S. adults were surveyed between June 25-30, 2026, with a margin of error of ±3 percentage points.",
+    "observed": "1,321 U.S. adults responded to the survey, which was conducted June 25 – June 30, 2026.",
+    "f1": 1.0,
+    "rougeL": 1.0,
+    "semantic": 1.0,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "1,321 U.S. adults responded to the survey, which was conducted June 25 – June 30, 2026.",
+      "rougeL": "1,321 U.S. adults responded to the survey, which was conducted June 25 – June 30, 2026.",
+      "semantic": "1,321 U.S. adults responded to the survey, which was conducted June 25 – June 30, 2026."
+    }
+  },
+  {
+    "question": "What was the average 2025 MLR rebate per person in the individual market?",
+    "expected": "$233, compared to $190 in the small group market and $91 in the large group market.",
+    "observed": "The 2025 average rebate per person was $233 in the individual market.",
+    "f1": 0.25,
+    "rougeL": 0.28571428571428575,
+    "semantic": 0.5197039246559143,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "$233, compared to $190 in the small group market and $91 in the large group market.",
+      "rougeL": "$233, compared to $190 in the small group market and $91 in the large group market.",
+      "semantic": "$233, compared to $190 in the small group market and $91 in the large group market."
+    }
+  },
+  {
+    "question": "How many people received MLR rebates in 2025?",
+    "expected": "About 5.1 million people in the individual market and 3.5 million through employer coverage.",
+    "observed": "8.6 million people. In 2025, rebates were issued to 5.1 million people with individual coverage and 3.5 million people with employer coverage.",
+    "f1": 1.0,
+    "rougeL": 1.0,
+    "semantic": 1.0,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "8.6 million people. In 2025, rebates were issued to 5.1 million people with individual coverage and 3.5 million people with employer coverage.",
+      "rougeL": "8.6 million people. In 2025, rebates were issued to 5.1 million people with individual coverage and 3.5 million people with employer coverage.",
+      "semantic": "8.6 million people. In 2025, rebates were issued to 5.1 million people with individual coverage and 3.5 million people with employer coverage."
+    }
+  },
+  {
+    "question": "What was the individual market's average simple loss ratio in 2025?",
+    "expected": "93%, compared to 87% for small group and 91% for large group markets.",
+    "observed": "In 2025, the average simple loss ratio in the individual market was 93%.",
+    "f1": 0.08333333333333334,
+    "rougeL": 0.07692307692307693,
+    "semantic": 0.5316575765609741,
+    "n_references": 1,
+    "best_reference": {
+      "f1": "93%, compared to 87% for small group and 91% for large group markets.",
+      "rougeL": "93%, compared to 87% for small group and 91% for large group markets.",
+      "semantic": "93%, compared to 87% for small group and 91% for large group markets."
+    }
+  },
+  {
+    "question": "How does U.S. per-person health spending in 2024 compare to other wealthy countries?",
+    "expected": "The U.S. spent $14,775 per person, 88% more than the $7,860 average in other high-income countries.",
+    "observed": "The U.S. spent $14,775 per person on health care compared to $7,860 per person in other high-income countries, which is 88% higher than other large, wealthy countries.",
+    "f1": 0.962962962962963,
+    "rougeL": 0.96875,
+    "semantic": 0.9629637002944946,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "In 2024, the U.S. spent $14,775 per person on health care compared to $7,860 per person in other high-income countries, which is 88% higher than other large, wealthy countries.",
+      "rougeL": "In 2024, the U.S. spent $14,775 per person on health care compared to $7,860 per person in other high-income countries, which is 88% higher than other large, wealthy countries.",
+      "semantic": "In 2024, the U.S. spent $14,775 per person on health care compared to $7,860 per person in other high-income countries, which is 88% higher than other large, wealthy countries."
+    }
+  },
+  {
+    "question": "How has U.S. health spending as a share of GDP changed since 1971?",
+    "expected": "It rose from 7% of GDP in 1971 (already considered crisis-level then) to 18% in 2024.",
+    "observed": "In 1971, national health spending had reached 7% of the economy; by 2024, U.S. healthcare spending had reached 18% of GDP.",
+    "f1": 0.975609756097561,
+    "rougeL": 0.9777777777777777,
+    "semantic": 0.9980785846710205,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "In 1971, national health spending had reached 7% of the economy, and by 2024, U.S. healthcare spending had reached 18% of GDP.",
+      "rougeL": "In 1971, national health spending had reached 7% of the economy, and by 2024, U.S. healthcare spending had reached 18% of GDP.",
+      "semantic": "In 1971, national health spending had reached 7% of the economy, and by 2024, U.S. healthcare spending had reached 18% of GDP."
+    }
+  },
+  {
+    "question": "Which U.S. presidents have raised alarms about unsustainable health care costs, according to KFF?",
+    "expected": "Nixon in 1971, Clinton in 1992, and Obama in 2009.",
+    "observed": "President Barack Obama and President Bill Clinton. President Obama said in 2009 that the soaring costs of health care make our current course unsustainable, and President Clinton said in 1992 that health care costs were increasing at unsustainable rates.",
+    "f1": 0.8539325842696629,
+    "rougeL": 0.8043478260869565,
+    "semantic": 0.940586268901825,
+    "n_references": 2,
+    "best_reference": {
+      "f1": "President Barack Obama, President Bill Clinton, and President Richard Nixon. President Obama said in 2009 that the soaring costs of health care make our current course unsustainable, President Clinton said in 1992 that health care costs were increasing at unsustainable rates, and President Nixon described a growing crisis in health care in 1971.",
+      "rougeL": "President Barack Obama, President Bill Clinton, and President Richard Nixon. President Obama said in 2009 that the soaring costs of health care make our current course unsustainable, President Clinton said in 1992 that health care costs were increasing at unsustainable rates, and President Nixon described a growing crisis in health care in 1971.",
+      "semantic": "President Barack Obama, President Bill Clinton, and President Richard Nixon. President Obama said in 2009 that the soaring costs of health care make our current course unsustainable, President Clinton said in 1992 that health care costs were increasing at unsustainable rates, and President Nixon described a growing crisis in health care in 1971."
+    }
+  }
+]

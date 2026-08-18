@@ -1,0 +1,7 @@
+distribución original del modelo
+        ↓
+   filtro top_k (corta a las k mejores)
+        ↓
+   filtro top_p (corta por probabilidad acumulada dentro de lo que quedó)
+        ↓
+   temperature (reescala lo que sobrevivió, antes de elegir al azar)

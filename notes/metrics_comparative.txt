@@ -1,0 +1,10 @@
+En una frase: vectorial = significado, BM25 = palabras exactas, híbrido = combina ambos rankings, reranking = un juez fino que reordena los finalistas.
+
+precision = palabras_en_comun / palabras_en_prediccion
+recall    = palabras_en_comun / palabras_en_referencia
+F1 = 2 · precision · recall / (precision + recall)
+
+LCS = subsecuencia_comun_mas_larga(prediccion, referencia)
+precision = len(LCS) / len(prediccion)
+recall    = len(LCS) / len(referencia)
+ROUGE-L = 2 · precision · recall / (precision + recall)

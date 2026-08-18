@@ -1,0 +1,34 @@
+1.-
+Usa Chroma cuando:
+Estás en prototipado, desarrollo local, o un proyecto pequeño-mediano (hasta cientos de miles o pocos millones de vectores).
+Quieres algo que se instala con pip install chromadb y funciona en minutos, sin levantar infraestructura aparte.
+Tu RAG corre embebido en la misma app (modo in-memory o persistente en disco) — ideal para notebooks, demos, apps internas.
+Tu filtrado de metadatos es relativamente simple (igualdad, $in, $and/$or básicos) — como filtrar por source, fecha, categoria.
+Prefieres una API pythonic simple y no quieres pagar por un servicio administrado.
+
+Su punto débil: no está pensado para producción a gran escala ni alta concurrencia; el filtrado es post-filtro más simple (no tan optimizado como Qdrant), y el ecosistema de operación (sharding, replicación, HA) es mucho más limitado.
+
+2.-Usa Qdrant cuando:
+
+Necesitas filtrado complejo y eficiente combinado con búsqueda vectorial — rangos numéricos, geo-filtros, condiciones anidadas — y quieres que el filtro se aplique durante la búsqueda HNSW (no después), lo cual da mejor recall cuando el filtro es muy restrictivo.
+Vas a producción con volumen serio y necesitas rendimiento predecible.
+Quieres algo open-source pero con opción de self-host en Rust (rápido) o su cloud gestionado.
+
+3.-Usa Pinecone cuando:
+No quieres operar nada tú mismo — es 100% managed, escala automáticamente, y te olvidas de infraestructura.
+Tienes presupuesto para pagar por comodidad y necesitas SLAs de producción serios.
+Tu filtrado de metadatos es moderado (no tan expresivo como Qdrant, pero suficiente para la mayoría de casos).
+
+4.- Usa Weaviate cuando:
+Quieres búsqueda híbrida nativa (vectorial + BM25/keyword) bien integrada, no como un parche.
+Te interesa su modelo de "clases" con esquema tipado, más parecido a una base de datos de objetos.
+Necesitas módulos integrados (generación, reranking, multi-tenancy) sin armar el pipeline tú mismo.
+
+5.-Usa pgvector cuando:
+Ya tienes Postgres en producción y no quieres añadir otro sistema a tu stack.
+Necesitas transacciones ACID, joins con datos relacionales existentes, y filtros SQL normales combinados con similitud vectorial.
+Tu escala es moderada (pgvector no rinde tan bien como los especializados en decenas de millones de vectores, aunque ha mejorado mucho con índices HNSW).
+
+6.-Usa Milvus cuando:
+Estás en escala muy grande (cientos de millones a miles de millones de vectores) y necesitas control fino sobre sharding, tipos de índice (IVF, HNSW, DiskANN), y arquitectura distribuida.
+Tienes equipo de infraestructura para operarlo (o usas Zilliz, su versión managed).

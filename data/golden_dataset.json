@@ -1,0 +1,347 @@
+[
+  {
+    "Pregunta": "Why are ACA Marketplace insurers proposing large premium increases for 2027?",
+    "Respuestas": [
+      "15%, mainly due to rising health care costs and the expiration of enhanced tax credits."
+    ]
+  },
+  {
+    "Pregunta": "How does the 2027 proposed increase compare to 2026?",
+    "Respuestas": [
+      "The 15% proposed for 2027 is lower than 2026's 18% proposed and 20% finalized increase.",
+      "The median proposed premium increase for 2027 is 15%, which is lower than last year's (2026) median nationwide proposed rate change of 18% and median finalized rate change of 20%.",
+      "The 2027 proposed median premium increase of 15% is lower than last year's median nationwide proposed rate change of 18% and median finalized rate change of 20%."
+    ]
+  },
+  {
+    "Pregunta": "What happened to ACA Marketplace enrollment in 2026?",
+    "Respuestas": [
+      "It fell about 12%, from 21.8 million in 2025 to 19.2 million in 2026."
+    ]
+  },
+  {
+    "Pregunta": "Which state avoided the enrollment drop in 2026, and why?",
+    "Respuestas": [
+      "New Mexico, which replaced expired federal subsidies with state funding and saw enrollment rise 14%.",
+      "New Mexico was the only state to see an increase in effectuated enrollment, growing 14% between 2025 and 2026, coinciding with the state's premium assistance program that fully replaced the expiring federal enhanced tax credits with state-funded subsidies."
+    ]
+  },
+  {
+    "Pregunta": "Did state-run Marketplaces fare better than federal HealthCare.gov states in 2026?",
+    "Respuestas": [
+      "Yes, state-based Marketplaces saw about a 6% enrollment decline on average, compared to a 15% decline in states using HealthCare.gov.",
+      "Yes, states that run their own Marketplaces generally maintained higher effectuation rates than states that use HealthCare.gov. State-based Marketplaces also experienced a 6% decline in effectuated enrollment from 2025 to 2026, compared to a 15% decline for states using the HealthCare.gov platform."
+    ]
+  },
+  {
+    "Pregunta": "What is the 'effectuation rate' and what happened to it in 2026?",
+    "Respuestas": [
+      "The share of enrollees who keep paying for coverage after signing up. It fell from 90% in 2025 to 83% in 2026.",
+      "The effectuation rate is the rate at which people who initially signed up for a plan kept their coverage by making their premium payments. Nationwide, the February effectuation rate fell from 90% in 2025 to 83% in 2026."
+    ]
+  },
+  {
+    "Pregunta": "What is the Medicaid 'coverage gap'?",
+    "Respuestas": [
+      "Adults who earn too much to qualify for Medicaid but too little to qualify for ACA Marketplace subsidies."
+    ]
+  },
+  {
+    "Pregunta": "Who typically falls into the Medicaid coverage gap?",
+    "Respuestas": [
+      "About 78% are adults without dependent children, and 56% are Hispanic or Black."
+    ]
+  },
+  {
+    "Pregunta": "Is the coverage gap expected to shrink soon?",
+    "Respuestas": [
+      "No. The 2025 reconciliation law removed incentives for expansion, making it unlikely more of the 10 remaining non-expansion states will adopt it."
+    ]
+  },
+  {
+    "Pregunta": "How do non-expansion states compare to expansion states on uninsured rates?",
+    "Respuestas": [
+      "Non-expansion states have a 14.5% uninsured rate, nearly double the 8.0% rate in states that expanded Medicaid.",
+      "The uninsured rate in non-expansion states (14.5%) was nearly twice the rate in expansion states (8.0%)."
+    ]
+  },
+  {
+    "Pregunta": "What did the KFF poll find about fraud as a midterm issue?",
+    "Respuestas": [
+      "55% of Republican voters say fraud in health programs is extremely important for candidates to address, versus 51% overall who prioritize health costs.",
+      "More than half (55%) of Republican voters say it is extremely important for candidates to discuss the issue of fraud in government health programs."
+    ]
+  },
+  {
+    "Pregunta": "Who do voters think commits most Medicare/Medicaid fraud?",
+    "Respuestas": [
+      "About 53% blame providers for Medicare fraud, and 49% blame providers for Medicaid fraud.",
+      "Health care providers. About half of voters overall say Medicare fraud is mostly carried out by providers (53%), and about half of voters say providers are the main perpetrators of fraud in Medicaid (49%)."
+    ]
+  },
+  {
+    "Pregunta": "Do voters prioritize fighting fraud or protecting Medicaid access?",
+    "Respuestas": [
+      "71% of voters say protecting access to care should be the priority over preventing fraud, while 28% say the opposite.",
+      "Most voters prioritize protecting access to care for eligible people over rooting out fraud. Seven in ten voters (71%) say the higher priority for managing the Medicaid program should be ensuring that eligible people have access to the care they need, even if it means some fraud may occur.",
+      "Most voters prioritize protecting access to care for Medicaid enrollees. Seven in ten voters (71%) say the higher priority for managing the Medicaid program should be ensuring that eligible people have access to the care they need, even if it means some fraud may occur."
+    ]
+  },
+  {
+    "Pregunta": "What do voters think about federal Medicaid payment deferrals aimed at fraud?",
+    "Respuestas": [
+      "Only 43% think federal Medicaid payment deferrals will save money, while 77% believe they'll cause eligible people to lose care.",
+      "Most voters say the deferrals are likely to cause eligible low-income people to lose access to care they rely on. Fewer than half (43%) say these deferrals are likely to save taxpayers money, and 31% say they are likely to lower health care costs for people like them."
+    ]
+  },
+  {
+    "Pregunta": "What are Medical Loss Ratio (MLR) rebates?",
+    "Respuestas": [
+      "Refunds insurers must pay when they don't spend at least 80% (individual/small group) or 85% (large group) of premiums on medical care."
+    ]
+  },
+  {
+    "Pregunta": "How do 2026 MLR rebates compare to recent years?",
+    "Respuestas": [
+      "Insurers expect to pay about $759 million in 2026, down from $958 million in 2024 and $1.6 billion in 2025."
+    ]
+  },
+  {
+    "Pregunta": "Why were MLR rebates so high in 2020-2021?",
+    "Respuestas": [
+      "Rebates hit record highs of $2.5 billion in 2020 and $2.1 billion in 2021, driven by high margins after 2018 premium hikes and lower pandemic-era care use.",
+      "Record-high rebate totals of $2.5 billion issued in 2020 and $2.1 billion issued in 2021 were driven largely by high margins in the 2018 ACA Marketplace following steep premium increases in response to the elimination of cost-sharing reduction payments, inflating the three-year average on which rebate calculations are based, as well as lower than expected utilization in 2020 due to the pandemic."
+    ]
+  },
+  {
+    "Pregunta": "Why does U.S. health spending keep rising, per KFF's video?",
+    "Respuestas": [
+      "Mainly the rising cost of hospital care, physician and clinical services, and prescription drugs, which pushed health spending from 7% of GDP in 1971 to 18% in 2024.",
+      "National health spending has been on the rise in recent years, driven by the increasing cost of hospital care, physician and clinical services, and prescription drugs."
+    ]
+  },
+  {
+    "Pregunta": "Did the ACA succeed at making health care more affordable?",
+    "Respuestas": [
+      "It's mixed. Marketplace enrollment hit 24 million in 2025, but premium payments rose 58% on average in 2026 after subsidies expired."
+    ]
+  },
+  {
+    "Pregunta": "How did enrollees respond to higher costs after subsidies expired?",
+    "Respuestas": [
+      "About 3 in 10 enrollees switched to cheaper plans and roughly 1 in 10 dropped coverage and became uninsured.",
+      "One in ten (9%) 2025 Marketplace enrollees say they are now currently uninsured and three in ten (28%) say they switched to a different Marketplace plan. Most cited costs as the reason for their change."
+    ]
+  },
+  {
+    "Pregunta": "What's driving up underlying medical costs cited in 2027 rate filings?",
+    "Respuestas": [
+      "The cost of medical care and drugs is projected to rise about 10% for 2027, compared to an 8% average in recent years."
+    ]
+  },
+  {
+    "Pregunta": "Are most enrollees exposed to the full 2027 premium increases?",
+    "Respuestas": [
+      "No, most still qualify for subsidies; only people earning 400% or more of the federal poverty level (about $62,600 for a single person) face the full increase."
+    ]
+  },
+  {
+    "Pregunta": "Which insurer's exit hit ACA Marketplace participation hardest?",
+    "Respuestas": [
+      "Aetna (CVS Health), which exited 17 states for 2026.",
+      "Aetna CVS. This drop in 2026 is primarily driven by the exit of Aetna CVS from 17 states."
+    ]
+  },
+  {
+    "Pregunta": "Why are insurers leaving the ACA Marketplaces for 2027?",
+    "Respuestas": [
+      "Shrinking, sicker enrollment is reducing profitability for some insurers — 7 carriers announced exits for 2027 as of July 2026, versus 5 entries."
+    ]
+  },
+  {
+    "Pregunta": "What happens to consumer choice when insurers exit a market?",
+    "Respuestas": [
+      "165 counties now have only one ACA insurer offering plans in 2026, up from 93 counties in 2025."
+    ]
+  },
+  {
+    "Pregunta": "Why did the uninsured rate rise in 2024?",
+    "Respuestas": [
+      "Mainly due to Medicaid disenrollments, which pushed the uninsured population up by 1.3 million to 26.7 million.",
+      "A decline in Medicaid coverage drove the increase in the uninsured rate in 2024."
+    ]
+  },
+  {
+    "Pregunta": "What's the top reason people give for being uninsured?",
+    "Respuestas": [
+      "61.7% of uninsured adults cite unaffordable coverage as their main reason for lacking insurance.",
+      "Inability to afford coverage is the most commonly cited reason for being uninsured. In 2024, 61.7% of uninsured adults ages 18-64 said they were uninsured because coverage is not affordable."
+    ]
+  },
+  {
+    "Pregunta": "How does being uninsured affect access to care?",
+    "Respuestas": [
+      "38.6% of uninsured adults delayed or skipped care due to cost in 2024, more than twice the 17.0% rate among privately insured adults.",
+      "People without insurance coverage are less likely to access care and more likely to delay or forgo care because of costs. In 2024, nearly four in ten uninsured adults (38.6%) reported delaying, skipping, or not getting needed care or medication due to cost."
+    ]
+  },
+  {
+    "Pregunta": "What financial hardships are common among the uninsured?",
+    "Respuestas": [
+      "34% of uninsured adults have medical debt, and 59% struggle to cover a $2,000 unexpected expense."
+    ]
+  },
+  {
+    "Pregunta": "Are most uninsured people eligible for financial help under the ACA?",
+    "Respuestas": [
+      "About 52.9%, or 14.1 million uninsured people, are estimated to be eligible for Medicaid or Marketplace subsidies but remain unenrolled.",
+      "Yes, just over half (52.9% or 14.1 million) of uninsured individuals in 2024 were estimated to be eligible for financial assistance."
+    ]
+  },
+  {
+    "Pregunta": "Are racial disparities present in uninsured rates?",
+    "Respuestas": [
+      "Yes, American Indian/Alaska Native and Hispanic people have uninsured rates around 18-19%, versus 6.8% for White people."
+    ]
+  },
+  {
+    "Pregunta": "How long do most uninsured people typically lack coverage?",
+    "Respuestas": [
+      "69.4% of uninsured adults have lacked coverage for over a year, and about 26% for ten or more years or never at all.",
+      "Most uninsured adults have been without health coverage for more than a year. Nearly seven in ten (69.4%) adults who were uninsured in 2024 had gone without health coverage for more than a year."
+    ]
+  },
+  {
+    "Pregunta": "Will the uninsured population keep growing due to recent federal changes?",
+    "Respuestas": [
+      "Yes, the CBO projects over 14 million more people uninsured by 2034 due to Medicaid work requirements and expiring Marketplace subsidies.",
+      "Yes, the Congressional Budget Office has estimated that Medicaid and Marketplace policy changes in the 2025 reconciliation law will increase the number of people who are uninsured by 14 million over the next decade."
+    ]
+  },
+  {
+    "Pregunta": "How much are Medicaid work requirements expected to increase the uninsured population?",
+    "Respuestas": [
+      "The CBO estimates Medicaid work requirements alone will increase the uninsured population by 5.3 million over the next ten years.",
+      "Medicaid work requirements will increase the number of uninsured individuals by 5.3 million over the next ten years."
+    ]
+  },
+  {
+    "Pregunta": "Which two states had the largest effectuated enrollment declines in 2026?",
+    "Respuestas": [
+      "Ohio and Oklahoma, both with declines of over 32%."
+    ]
+  },
+  {
+    "Pregunta": "Which states had the smallest enrollment declines in 2026?",
+    "Respuestas": [
+      "Illinois, Connecticut, Pennsylvania, Idaho, D.C., Massachusetts, and Texas all saw declines under 5%."
+    ]
+  },
+  {
+    "Pregunta": "Which state had the lowest effectuation rate in 2026, and what was it?",
+    "Respuestas": [
+      "Mississippi, at 61%.",
+      "Mississippi had the lowest effectuation rate (61%) in 2026."
+    ]
+  },
+  {
+    "Pregunta": "What do the nine states with state-funded subsidies have in common in 2026 enrollment data?",
+    "Respuestas": [
+      "All nine saw below-average declines in effectuated enrollment."
+    ]
+  },
+  {
+    "Pregunta": "How much did ACA Marketplace plan selections (sign-ups) fall in 2026?",
+    "Respuestas": [
+      "Plan selections fell by about 1 million, a 5% decline from the previous year.",
+      "Plan sign-ups fell by over a million during the 2026 Open Enrollment Period."
+    ]
+  },
+  {
+    "Pregunta": "If all states adopted Medicaid expansion, how many uninsured adults would become newly eligible for Medicaid?",
+    "Respuestas": [
+      "About 2.4 million: 1.2 million currently in the coverage gap, plus 1.2 million earning 100-138% of the federal poverty level."
+    ]
+  },
+  {
+    "Pregunta": "Which state has the lowest Medicaid eligibility threshold for parents among non-expansion states?",
+    "Respuestas": [
+      "Texas, at just 15% of the federal poverty level (about $4,098 a year for a family of three).",
+      "Texas has the nation’s lowest eligibility threshold for parents at 15% FPL."
+    ]
+  },
+  {
+    "Pregunta": "What is the median Medicaid eligibility threshold for parents across non-expansion states?",
+    "Respuestas": [
+      "40% of the federal poverty level."
+    ]
+  },
+  {
+    "Pregunta": "Which two states have Medicaid work-requirement waivers despite not adopting full expansion?",
+    "Respuestas": [
+      "Georgia and Wisconsin."
+    ]
+  },
+  {
+    "Pregunta": "In which government fraud category do voters perceive the most fraud, and what percentage?",
+    "Respuestas": [
+      "The federal tax system, with 52% of voters saying there is 'a lot' of fraud there.",
+      "The federal tax system, with 52% of voters saying there is “a lot” of fraud."
+    ]
+  },
+  {
+    "Pregunta": "How do Republicans and Democrats differ in perceiving Medicaid fraud?",
+    "Respuestas": [
+      "62% of Republicans believe Medicaid fraud is prevalent, compared to just 21% of Democrats.",
+      "Republican voters are more likely (62%) than Democratic voters (21%) to say there is a lot of fraud in Medicaid."
+    ]
+  },
+  {
+    "Pregunta": "How many people responded to the KFF poll on health costs and fraud, and when was it conducted?",
+    "Respuestas": [
+      "1,321 U.S. adults were surveyed between June 25-30, 2026, with a margin of error of ±3 percentage points.",
+      "1,321 U.S. adults responded to the survey, which was conducted June 25 – June 30, 2026."
+    ]
+  },
+  {
+    "Pregunta": "What was the average 2025 MLR rebate per person in the individual market?",
+    "Respuestas": [
+      "$233, compared to $190 in the small group market and $91 in the large group market.",
+      "$233."
+    ]
+  },
+  {
+    "Pregunta": "How many people received MLR rebates in 2025?",
+    "Respuestas": [
+      "About 5.1 million people in the individual market and 3.5 million through employer coverage.",
+      "8.6 million people. In 2025, rebates were issued to 5.1 million people with individual coverage and 3.5 million people with employer coverage."
+    ]
+  },
+  {
+    "Pregunta": "What was the individual market's average simple loss ratio in 2025?",
+    "Respuestas": [
+      "93%, compared to 87% for small group and 91% for large group markets."
+    ]
+  },
+  {
+    "Pregunta": "How does U.S. per-person health spending in 2024 compare to other wealthy countries?",
+    "Respuestas": [
+      "The U.S. spent $14,775 per person, 88% more than the $7,860 average in other high-income countries.",
+      "In 2024, the U.S. spent $14,775 per person on health care compared to $7,860 per person in other high-income countries, which is 88% higher than other large, wealthy countries."
+    ]
+  },
+  {
+    "Pregunta": "How has U.S. health spending as a share of GDP changed since 1971?",
+    "Respuestas": [
+      "It rose from 7% of GDP in 1971 (already considered crisis-level then) to 18% in 2024.",
+      "In 1971, national health spending had reached 7% of the economy, and by 2024, U.S. healthcare spending had reached 18% of GDP."
+    ]
+  },
+  {
+    "Pregunta": "Which U.S. presidents have raised alarms about unsustainable health care costs, according to KFF?",
+    "Respuestas": [
+      "Nixon in 1971, Clinton in 1992, and Obama in 2009.",
+      "President Barack Obama, President Bill Clinton, and President Richard Nixon. President Obama said in 2009 that the soaring costs of health care make our current course unsustainable, President Clinton said in 1992 that health care costs were increasing at unsustainable rates, and President Nixon described a growing crisis in health care in 1971."
+    ]
+  }
+]

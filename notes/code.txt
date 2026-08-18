@@ -1,0 +1,11 @@
+python scrapper_url.py
+python scrapper_content.py
+python index_to_chroma.py
+
+python query_chroma.py count                       # total de chunks
+python query_chroma.py peek 5                       # vistazo crudo, sin buscar
+python query_chroma.py list_articles                # articulos unicos indexados
+python query_chroma.py chunks <article_id>           # chunks de un articulo, en orden
+python query_chroma.py full <article_id>             # texto completo reconstruido
+python query_chroma.py search "pregunta libre" 3     # busqueda semantica (top N)
+python query_chroma.py delete_collection si          # elimina la coleccion completa
