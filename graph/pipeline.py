@@ -16,6 +16,7 @@ warnings.filterwarnings("ignore", category=PendingDeprecationWarning, message=".
 from langgraph.graph import END, StateGraph  # noqa: E402
 
 from llm.answer import answer_with_llm, build_context, call_gemini, load_gemini_client
+from llm.observability import observe
 from retrieval.query_filters import build_where_filter, get_known_categories
 from retrieval.retrieval_methods import (
     COLLECTION_NAME,
@@ -189,9 +190,9 @@ def load_resources():
     return Resources(chroma_client, embeddings, cross_encoder, gemini_client, known_categories, articles)
 
 
-def _ask_judge(gemini_client, prompt):
+def _ask_judge(gemini_client, prompt, name="judge"):
     response = call_gemini(
-        gemini_client, model="gemini-2.5-flash", contents=prompt, config=JUDGE_CONFIG
+        gemini_client, name=name, model="gemini-2.5-flash", contents=prompt, config=JUDGE_CONFIG
     )
     return response.text.strip()
 
@@ -212,148 +213,187 @@ def _extract_score(text):
 
 def build_rag_graph(resources: Resources):
     def condense_question(state: RAGState) -> dict:
-        history = state["chat_history"]
-        if not history:
-            print("[condense_question] sin historial previo, la pregunta ya es standalone")
-            return {"standalone_question": state["question"]}
+        with observe("span", "condense_question") as span:
+            span.update(input={"question": state["question"], "history_turns": len(state["chat_history"])})
+            history = state["chat_history"]
+            if not history:
+                print("[condense_question] sin historial previo, la pregunta ya es standalone")
+                span.update(output={"standalone_question": state["question"]})
+                return {"standalone_question": state["question"]}
 
-        recent_history = history[-MAX_HISTORY_TURNS:]
-        history_text = "\n".join(f"Q: {q}\nA: {a}" for q, a in recent_history)
-        print(f"[condense_question] reescribiendo '{state['question']}' con {len(recent_history)} turno(s) previo(s)...")
-        prompt = CONDENSE_QUESTION_PROMPT.format(history=history_text, question=state["question"])
-        rewritten = _ask_judge(resources.gemini_client, prompt)
-        print(f"[condense_question] -> '{rewritten}'")
-        return {"standalone_question": rewritten}
+            recent_history = history[-MAX_HISTORY_TURNS:]
+            history_text = "\n".join(f"Q: {q}\nA: {a}" for q, a in recent_history)
+            print(f"[condense_question] reescribiendo '{state['question']}' con {len(recent_history)} turno(s) previo(s)...")
+            prompt = CONDENSE_QUESTION_PROMPT.format(history=history_text, question=state["question"])
+            rewritten = _ask_judge(resources.gemini_client, prompt, name="condense_question")
+            print(f"[condense_question] -> '{rewritten}'")
+            span.update(output={"standalone_question": rewritten})
+            return {"standalone_question": rewritten}
 
     def classify_intent(state: RAGState) -> dict:
-        question = state["standalone_question"]
-        print(f"[classify_intent] Gemini decidiendo que tool usar para '{question}'...")
-        response = call_gemini(
-            resources.gemini_client, model="gemini-2.5-flash", contents=question, config=INTENT_CONFIG
-        )
+        with observe("span", "classify_intent") as span:
+            question = state["standalone_question"]
+            span.update(input={"question": question})
+            print(f"[classify_intent] Gemini decidiendo que tool usar para '{question}'...")
+            response = call_gemini(
+                resources.gemini_client, name="classify_intent",
+                model="gemini-2.5-flash", contents=question, config=INTENT_CONFIG,
+            )
 
-        calls = response.function_calls
-        if not calls:
-            print("[classify_intent] -> sin tool call, content_query (sigue al gatekeeper)")
+            calls = response.function_calls
+            if not calls:
+                print("[classify_intent] -> sin tool call, content_query (sigue al gatekeeper)")
+                span.update(output={"intent": ""})
+                return {"intent": "", "meta_match": None}
+
+            call = calls[0]
+            args = dict(call.args or {})
+            print(f"[classify_intent] -> tool call: {call.name}({args})")
+
+            if call.name == "count_articles":
+                span.update(output={"intent": "count"})
+                return {"intent": "count", "meta_match": None}
+
+            if call.name == "list_recent_articles":
+                span.update(output={"intent": "recent", "n": args.get("n", 5)})
+                return {"intent": "recent", "meta_match": {"n": int(args.get("n", 5))}}
+
+            if call.name == "get_article_excerpt":
+                result = get_article_excerpt(resources.articles, args.get("title", ""))
+                if result is None:
+                    print(f"[classify_intent] -> get_article_excerpt no encontro '{args.get('title')}' indexado, cae a content_query")
+                    span.update(output={"intent": "", "unmatched_title": args.get("title")})
+                    return {"intent": "", "meta_match": None}
+                span.update(output={"intent": "summary", "matched_title": result["title"]})
+                return {"intent": "summary", "meta_match": result}
+
+            # "answer_from_articles" u otra cosa inesperada -> content_query
+            span.update(output={"intent": ""})
             return {"intent": "", "meta_match": None}
 
-        call = calls[0]
-        args = dict(call.args or {})
-        print(f"[classify_intent] -> tool call: {call.name}({args})")
-
-        if call.name == "count_articles":
-            return {"intent": "count", "meta_match": None}
-
-        if call.name == "list_recent_articles":
-            return {"intent": "recent", "meta_match": {"n": int(args.get("n", 5))}}
-
-        if call.name == "get_article_excerpt":
-            result = get_article_excerpt(resources.articles, args.get("title", ""))
-            if result is None:
-                print(f"[classify_intent] -> get_article_excerpt no encontro '{args.get('title')}' indexado, cae a content_query")
-                return {"intent": "", "meta_match": None}
-            return {"intent": "summary", "meta_match": result}
-
-        # "answer_from_articles" u otra cosa inesperada -> content_query
-        return {"intent": "", "meta_match": None}
-
     def handle_meta_query(state: RAGState) -> dict:
-        intent = state["intent"]
-        print(f"[handle_meta_query] resolviendo '{intent}' directo contra la coleccion, sin retrieval...")
+        with observe("span", "handle_meta_query") as span:
+            intent = state["intent"]
+            span.update(input={"intent": intent})
+            print(f"[handle_meta_query] resolviendo '{intent}' directo contra la coleccion, sin retrieval...")
 
-        if intent == "count":
-            total = count_articles(resources.articles)
-            answer = f"There are {total} articles indexed."
-        elif intent == "recent":
-            n = state["meta_match"]["n"]
-            recent = list_recent_articles(resources.articles, n=n)
-            lines = [f"- {a['title']} ({a['date'][:10]})\n  {a['url']}" for a in recent]
-            answer = "The most recent articles are:\n" + "\n".join(lines)
-        else:  # "summary"
-            meta = state["meta_match"]
-            answer = f"{meta['title']}\n{meta.get('excerpt', '')}\n\nSource: {meta['url']}"
+            if intent == "count":
+                total = count_articles(resources.articles)
+                answer = f"There are {total} articles indexed."
+            elif intent == "recent":
+                n = state["meta_match"]["n"]
+                recent = list_recent_articles(resources.articles, n=n)
+                lines = [f"- {a['title']} ({a['date'][:10]})\n  {a['url']}" for a in recent]
+                answer = "The most recent articles are:\n" + "\n".join(lines)
+            else:  # "summary"
+                meta = state["meta_match"]
+                answer = f"{meta['title']}\n{meta.get('excerpt', '')}\n\nSource: {meta['url']}"
 
-        print(f"[handle_meta_query] -> respuesta generada ({len(answer)} caracteres)")
-        return {"answer": answer}
+            print(f"[handle_meta_query] -> respuesta generada ({len(answer)} caracteres)")
+            span.update(output={"answer": answer})
+            return {"answer": answer}
 
     def validate_query(state: RAGState) -> dict:
-        print(f"[validate_query] recepcionista: revisando '{state['standalone_question']}'...")
-        question = state["standalone_question"].strip()
-        if not question:
-            print("[validate_query] -> RECHAZADA (pregunta vacia)")
-            return {"query_valid": False, "rejection_reason": "Pregunta vacia."}
+        with observe("span", "validate_query") as span:
+            print(f"[validate_query] recepcionista: revisando '{state['standalone_question']}'...")
+            question = state["standalone_question"].strip()
+            span.update(input={"question": question})
+            if not question:
+                print("[validate_query] -> RECHAZADA (pregunta vacia)")
+                span.update(output={"valid": False, "reason": "Pregunta vacia."})
+                return {"query_valid": False, "rejection_reason": "Pregunta vacia."}
 
-        prompt = QUERY_VALIDATION_PROMPT.format(question=question)
-        output = _ask_judge(resources.gemini_client, prompt)
-        valid = _parse_verdict(output, "VALID", "INVALID")
-        reason_match = re.search(r"Reason:\s*(.+)", output)
-        reason = reason_match.group(1).strip() if reason_match else "Pregunta fuera del alcance del sistema."
-        print(f"[validate_query] -> {'VALIDA, pasa al archivista' if valid else f'RECHAZADA ({reason})'}")
+            prompt = QUERY_VALIDATION_PROMPT.format(question=question)
+            output = _ask_judge(resources.gemini_client, prompt, name="validate_query")
+            valid = _parse_verdict(output, "VALID", "INVALID")
+            reason_match = re.search(r"Reason:\s*(.+)", output)
+            reason = reason_match.group(1).strip() if reason_match else "Pregunta fuera del alcance del sistema."
+            print(f"[validate_query] -> {'VALIDA, pasa al archivista' if valid else f'RECHAZADA ({reason})'}")
 
-        return {"query_valid": valid, "rejection_reason": "" if valid else reason}
+            span.update(output={"valid": valid, "reason": reason})
+            return {"query_valid": valid, "rejection_reason": "" if valid else reason}
 
     def retrieve(state: RAGState) -> dict:
-        question = state.get("transformed_question") or state["standalone_question"]
-        intento = state["retrieval_attempts"] + 1
-        print(f"[retrieve] archivista: buscando (intento {intento}) con '{question}'...")
-        where_filter = build_where_filter(question, resources.known_categories)
-        print(f"[retrieve] filtro de metadata detectado: {where_filter or '(ninguno)'}")
+        with observe("span", "retrieve") as span:
+            question = state.get("transformed_question") or state["standalone_question"]
+            intento = state["retrieval_attempts"] + 1
+            print(f"[retrieve] archivista: buscando (intento {intento}) con '{question}'...")
+            where_filter = build_where_filter(question, resources.known_categories)
+            print(f"[retrieve] filtro de metadata detectado: {where_filter or '(ninguno)'}")
+            span.update(input={"question": question, "attempt": intento, "where_filter": where_filter})
 
-        retrievers, _ = build_retrievers(
-            resources.chroma_client, resources.embeddings, resources.cross_encoder, where_filter
-        )
-        if retrievers is None:
-            print("[retrieve] -> 0 documentos (el filtro no matchea nada indexado)")
-            return {"where_filter": where_filter, "documents": []}
+            retrievers, _ = build_retrievers(
+                resources.chroma_client, resources.embeddings, resources.cross_encoder, where_filter
+            )
+            if retrievers is None:
+                print("[retrieve] -> 0 documentos (el filtro no matchea nada indexado)")
+                span.update(output={"doc_count": 0})
+                return {"where_filter": where_filter, "documents": []}
 
-        docs = retrievers[HYBRID_RERANK_KEY].invoke(question)
-        print(f"[retrieve] -> {len(docs)} documentos traidos")
-        return {"where_filter": where_filter, "documents": docs}
+            docs = retrievers[HYBRID_RERANK_KEY].invoke(question)
+            print(f"[retrieve] -> {len(docs)} documentos traidos")
+            span.update(output={"doc_count": len(docs)})
+            return {"where_filter": where_filter, "documents": docs}
 
     def grade_documents(state: RAGState) -> dict:
-        print("[grade_documents] supervisor: revisando si los documentos sirven...")
-        if not state["documents"]:
-            print("[grade_documents] -> NOT_RELEVANT (no hay documentos)")
-            return {"retrieval_valid": False}
+        with observe("span", "grade_documents") as span:
+            print("[grade_documents] supervisor: revisando si los documentos sirven...")
+            if not state["documents"]:
+                print("[grade_documents] -> NOT_RELEVANT (no hay documentos)")
+                span.update(output={"relevant": False})
+                span.score_trace(name="retrieval_relevant", value=0, data_type="BOOLEAN")
+                return {"retrieval_valid": False}
 
-        context = build_context(state["documents"])
-        prompt = RETRIEVAL_GRADING_PROMPT.format(context=context, question=state["standalone_question"])
-        output = _ask_judge(resources.gemini_client, prompt)
-        relevant = _parse_verdict(output, "RELEVANT", "NOT_RELEVANT")
-        print(f"[grade_documents] -> {'RELEVANT, pasa al redactor' if relevant else 'NOT_RELEVANT'}")
-        return {"retrieval_valid": relevant}
+            context = build_context(state["documents"])
+            prompt = RETRIEVAL_GRADING_PROMPT.format(context=context, question=state["standalone_question"])
+            output = _ask_judge(resources.gemini_client, prompt, name="grade_documents")
+            relevant = _parse_verdict(output, "RELEVANT", "NOT_RELEVANT")
+            print(f"[grade_documents] -> {'RELEVANT, pasa al redactor' if relevant else 'NOT_RELEVANT'}")
+            span.update(output={"relevant": relevant})
+            span.score_trace(name="retrieval_relevant", value=1 if relevant else 0, data_type="BOOLEAN")
+            return {"retrieval_valid": relevant}
 
     def transform_query(state: RAGState) -> dict:
-        print(f"[transform_query] traductor: reformulando '{state['standalone_question']}'...")
-        prompt = QUERY_TRANSFORM_PROMPT.format(question=state["standalone_question"])
-        rewritten = _ask_judge(resources.gemini_client, prompt)
-        print(f"[transform_query] -> nueva version: '{rewritten}'")
-        return {
-            "transformed_question": rewritten,
-            "retrieval_attempts": state["retrieval_attempts"] + 1,
-        }
+        with observe("span", "transform_query") as span:
+            print(f"[transform_query] traductor: reformulando '{state['standalone_question']}'...")
+            span.update(input={"question": state["standalone_question"]})
+            prompt = QUERY_TRANSFORM_PROMPT.format(question=state["standalone_question"])
+            rewritten = _ask_judge(resources.gemini_client, prompt, name="transform_query")
+            print(f"[transform_query] -> nueva version: '{rewritten}'")
+            span.update(output={"rewritten": rewritten})
+            return {
+                "transformed_question": rewritten,
+                "retrieval_attempts": state["retrieval_attempts"] + 1,
+            }
 
     def generate(state: RAGState) -> dict:
-        intento = state["answer_attempts"] + 1
-        print(f"[generate] redactor: escribiendo respuesta (intento {intento})...")
-        answer = answer_with_llm(resources.gemini_client, state["documents"], state["standalone_question"])
-        print(f"[generate] -> respuesta generada ({len(answer)} caracteres)")
-        return {"answer": answer, "answer_attempts": state["answer_attempts"] + 1}
+        with observe("span", "generate") as span:
+            intento = state["answer_attempts"] + 1
+            print(f"[generate] redactor: escribiendo respuesta (intento {intento})...")
+            span.update(input={"question": state["standalone_question"], "attempt": intento})
+            answer = answer_with_llm(resources.gemini_client, state["documents"], state["standalone_question"])
+            print(f"[generate] -> respuesta generada ({len(answer)} caracteres)")
+            span.update(output={"answer": answer})
+            return {"answer": answer, "answer_attempts": state["answer_attempts"] + 1}
 
     def validate_answer(state: RAGState) -> dict:
-        print("[validate_answer] editor: chequeando la respuesta contra el contexto...")
-        context = build_context(state["documents"])
-        prompt = ANSWER_VALIDATION_RUBRIC.format(
-            context=context, question=state["standalone_question"], answer=state["answer"]
-        )
-        output = _ask_judge(resources.gemini_client, prompt)
-        score = _extract_score(output)
-        valid = score is not None and score >= ANSWER_VALID_THRESHOLD
-        print(f"[validate_answer] -> score={score} ({'aprobada' if valid else 'rechazada'}, umbral={ANSWER_VALID_THRESHOLD})")
-        return {
-            "answer_score": score,
-            "answer_valid": valid,
-        }
+        with observe("span", "validate_answer") as span:
+            print("[validate_answer] editor: chequeando la respuesta contra el contexto...")
+            context = build_context(state["documents"])
+            prompt = ANSWER_VALIDATION_RUBRIC.format(
+                context=context, question=state["standalone_question"], answer=state["answer"]
+            )
+            output = _ask_judge(resources.gemini_client, prompt, name="validate_answer")
+            score = _extract_score(output)
+            valid = score is not None and score >= ANSWER_VALID_THRESHOLD
+            print(f"[validate_answer] -> score={score} ({'aprobada' if valid else 'rechazada'}, umbral={ANSWER_VALID_THRESHOLD})")
+            span.update(output={"score": score, "valid": valid})
+            if score is not None:
+                span.score_trace(name="answer_groundedness", value=score, data_type="NUMERIC")
+            return {
+                "answer_score": score,
+                "answer_valid": valid,
+            }
 
     def finalize_rejected(state: RAGState) -> dict:
         print("[finalize_rejected] recepcion de salida: entregando rechazo")

@@ -7,6 +7,8 @@ from google import genai
 from google.genai import errors as genai_errors
 from google.genai import types
 
+from llm.observability import observe
+
 GEMINI_MODEL = "gemini-2.5-flash"
 TOP_K_CONTEXT = 3
 
@@ -56,7 +58,21 @@ def load_gemini_client():
     )
 
 
-def call_gemini(client, **kwargs):
+def _response_output(response):
+    """Texto de la respuesta, o la(s) tool call(s) si no hay texto (caso de
+    classify_intent, que usa function-calling y no genera texto)."""
+    try:
+        if response.text:
+            return response.text
+    except Exception:
+        pass
+    calls = getattr(response, "function_calls", None)
+    if calls:
+        return [{"name": c.name, "args": dict(c.args or {})} for c in calls]
+    return None
+
+
+def call_gemini(client, name="gemini_call", **kwargs):
     """generate_content con retry + backoff exponencial (+jitter) ante 429
     (RESOURCE_EXHAUSTED, cuota) y errores transitorios de servidor (500/503).
 
@@ -64,19 +80,39 @@ def call_gemini(client, **kwargs):
     classify_intent) y answer_with_llm en este modulo pasan por aca, para no
     repetir la logica de retry en cada nodo del grafo. Sin acceso para subir
     la cuota de Vertex AI, reintentar con espera es la unica mitigacion
-    disponible del lado del codigo."""
-    last_error = None
-    for attempt in range(MAX_RETRIES + 1):
-        try:
-            return client.models.generate_content(**kwargs)
-        except (genai_errors.ClientError, genai_errors.ServerError) as exc:
-            if exc.code not in RETRYABLE_STATUS_CODES or attempt == MAX_RETRIES:
-                raise
-            last_error = exc
+    disponible del lado del codigo.
 
-        delay = BASE_DELAY_SECONDS * (2**attempt) + random.uniform(0, 1)
-        print(f"[call_gemini] {last_error.code} {last_error.status} -- reintentando en {delay:.1f}s (intento {attempt + 1}/{MAX_RETRIES})...")
-        time.sleep(delay)
+    Tambien es el unico lugar que envuelve la llamada como "generation" de
+    Langfuse (ver llm/observability.py) -- asi las 3 formas de llamar a
+    Gemini en el proyecto (_ask_judge, classify_intent, answer_with_llm)
+    quedan trazadas con tokens reales de response.usage_metadata, sin
+    duplicar esa logica en cada una."""
+    last_error = None
+    with observe("generation", name, model=kwargs.get("model")) as gen:
+        gen.update(input=kwargs.get("contents"))
+        for attempt in range(MAX_RETRIES + 1):
+            try:
+                response = client.models.generate_content(**kwargs)
+                usage = response.usage_metadata
+                gen.update(
+                    output=_response_output(response),
+                    usage_details={
+                        "input": usage.prompt_token_count,
+                        "output": usage.candidates_token_count,
+                        "total": usage.total_token_count,
+                    }
+                    if usage
+                    else None,
+                )
+                return response
+            except (genai_errors.ClientError, genai_errors.ServerError) as exc:
+                if exc.code not in RETRYABLE_STATUS_CODES or attempt == MAX_RETRIES:
+                    raise
+                last_error = exc
+
+            delay = BASE_DELAY_SECONDS * (2**attempt) + random.uniform(0, 1)
+            print(f"[call_gemini] {last_error.code} {last_error.status} -- reintentando en {delay:.1f}s (intento {attempt + 1}/{MAX_RETRIES})...")
+            time.sleep(delay)
 
 
 def build_context(docs):
@@ -92,6 +128,6 @@ def answer_with_llm(client, docs, question, prompt_template=PROMPT_TEMPLATE):
     context = build_context(docs)
     prompt = prompt_template.format(context=context, question=question)
     response = call_gemini(
-        client, model=GEMINI_MODEL, contents=prompt, config=GENERATION_CONFIG
+        client, name="generate", model=GEMINI_MODEL, contents=prompt, config=GENERATION_CONFIG
     )
     return response.text

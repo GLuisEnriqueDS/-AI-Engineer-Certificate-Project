@@ -14,7 +14,7 @@ env/
 
 # Jupyter
 .ipynb_checkpoints/
-
+jupyter-examples/
 # ChromaDB (base vectorial persistente, se regenera con ingest/run_pipeline.py)
 chroma_db/
 
@@ -32,3 +32,7 @@ Thumbs.db
 
 # Logs / temp
 *.log
+
+# Notes
+*.md
+notes/

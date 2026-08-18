@@ -1,6 +1,10 @@
+import uuid
+
 from google.genai import errors as genai_errors
 
 from graph.pipeline import build_rag_graph, initial_state, load_resources
+from llm.observability import flush as langfuse_flush
+from llm.observability import observe, trace_session
 
 
 def print_result(result):
@@ -35,6 +39,7 @@ def main():
     print("Listo. Escribe una pregunta (o 'salir' para terminar).\n")
 
     chat_history = []
+    session_id = str(uuid.uuid4())
 
     while True:
         question = input("Pregunta> ").strip()
@@ -45,11 +50,17 @@ def main():
 
         print("# --DEBUG-- #")
         try:
-            result = graph.invoke(initial_state(question, chat_history))
+            with observe("span", "rag_turn") as root:
+                root.update(input={"question": question})
+                with trace_session(session_id=session_id, user_id="cli-user", trace_name="rag_turn"):
+                    result = graph.invoke(initial_state(question, chat_history))
+                root.update(output={"status": result["status"], "answer": result["answer"]})
         except genai_errors.APIError as exc:
             print(f"\nError de la API de Gemini ({exc.code} {exc.status}): {exc.message}")
             print("No se pudo responder esta pregunta. Probá de nuevo en unos segundos.\n")
             continue
+        finally:
+            langfuse_flush()
 
         print_result(result)
         print()

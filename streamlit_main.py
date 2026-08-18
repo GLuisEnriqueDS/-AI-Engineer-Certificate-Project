@@ -1,11 +1,15 @@
 import contextlib
 import io
+import uuid
 
 import streamlit as st
 from google.genai import errors as genai_errors
 
 from graph.pipeline import COLLECTION_NAME, build_rag_graph, initial_state, load_resources
 from llm.answer import GEMINI_MODEL
+from llm.observability import ENABLED as LANGFUSE_ENABLED
+from llm.observability import flush as langfuse_flush
+from llm.observability import observe, score, trace_session
 from retrieval.retrieval_methods import EMBEDDING_MODEL, HYBRID_RERANK_KEY, RERANKER_MODEL
 
 st.set_page_config(page_title="KFF ACA Assistant", page_icon="🩺", layout="wide")
@@ -44,17 +48,26 @@ def format_answer(result):
     return "".join(parts)
 
 
-def run_turn(graph, question, chat_history):
+def run_turn(graph, question, chat_history, session_id):
     """Corre el grafo capturando los print() de debug de cada nodo (en vez
-    de que vayan a la consola, quedan disponibles para el panel lateral)."""
+    de que vayan a la consola, quedan disponibles para el panel lateral), y
+    lo envuelve en un trace de Langfuse (root span + session_id de esta
+    sesion de Streamlit) igual que main.py."""
     debug_buffer = io.StringIO()
     try:
         with contextlib.redirect_stdout(debug_buffer):
-            result = graph.invoke(initial_state(question, chat_history))
-        return result, debug_buffer.getvalue(), None
+            with observe("span", "rag_turn") as root:
+                root.update(input={"question": question})
+                with trace_session(session_id=session_id, user_id="streamlit-user", trace_name="rag_turn"):
+                    result = graph.invoke(initial_state(question, chat_history))
+                root.update(output={"status": result["status"], "answer": result["answer"]})
+                trace_id = root.trace_id
+        return result, debug_buffer.getvalue(), None, trace_id
     except genai_errors.APIError as exc:
         error_msg = f"Error de la API de Gemini ({exc.code} {exc.status}): {exc.message}"
-        return None, debug_buffer.getvalue(), error_msg
+        return None, debug_buffer.getvalue(), error_msg, None
+    finally:
+        langfuse_flush()
 
 
 def render_sidebar(debug_log):
@@ -70,6 +83,7 @@ def render_sidebar(debug_log):
 - **Orquestacion**: LangGraph
 - **Meta-queries**: function-calling nativo de Gemini
   (count / recent / summary de un articulo, sin retrieval)
+- **Tracing**: {"Langfuse ✅" if LANGFUSE_ENABLED else "Langfuse deshabilitado (faltan claves en .env)"}
 """
         )
         st.divider()
@@ -81,6 +95,37 @@ def render_sidebar(debug_log):
             last_question, last_trace = debug_log[-1]
             st.caption(f"Ultimo turno: *{last_question}*")
             st.code(last_trace or "(sin salida)", language="text")
+
+
+def render_message(message):
+    """Dibuja un mensaje del chat. Si es del assistant y tiene trace_id
+    (turno instrumentado con Langfuse), agrega botones de feedback 👍/👎 --
+    una sola vez por mensaje, usando session_state.feedback_given para no
+    mostrarlos de nuevo (ni permitir votar dos veces) despues del rerun que
+    dispara cada click."""
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+        trace_id = message.get("trace_id")
+        if not trace_id:
+            return
+
+        vote = st.session_state.feedback_given.get(trace_id)
+        if vote:
+            st.caption("Gracias por tu feedback 👍" if vote == "up" else "Gracias por tu feedback 👎")
+            return
+
+        col_up, col_down, _ = st.columns([1, 1, 8])
+        if col_up.button("👍", key=f"fb_up_{trace_id}"):
+            score("user_feedback", 1, trace_id, data_type="NUMERIC", comment="👍")
+            langfuse_flush()
+            st.session_state.feedback_given[trace_id] = "up"
+            st.rerun()
+        if col_down.button("👎", key=f"fb_down_{trace_id}"):
+            score("user_feedback", 0, trace_id, data_type="NUMERIC", comment="👎")
+            langfuse_flush()
+            st.session_state.feedback_given[trace_id] = "down"
+            st.rerun()
 
 
 def render_welcome():
@@ -116,36 +161,37 @@ def main():
         st.session_state.chat_history = []
     if "debug_log" not in st.session_state:
         st.session_state.debug_log = []
+    if "session_id" not in st.session_state:
+        st.session_state.session_id = str(uuid.uuid4())
+    if "feedback_given" not in st.session_state:
+        st.session_state.feedback_given = {}
 
     render_welcome()
 
     for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+        render_message(message)
 
     question = st.chat_input("Escribi tu pregunta sobre el ACA...")
     if question:
         st.session_state.messages.append({"role": "user", "content": question})
-        with st.chat_message("user"):
-            st.markdown(question)
 
-        with st.chat_message("assistant"):
-            with st.spinner("Pensando..."):
-                graph = get_graph()
-                result, debug_trace, error = run_turn(graph, question, st.session_state.chat_history)
+        with st.spinner("Pensando..."):
+            graph = get_graph()
+            result, debug_trace, error, trace_id = run_turn(
+                graph, question, st.session_state.chat_history, st.session_state.session_id
+            )
 
-            st.session_state.debug_log.append((question, debug_trace))
+        st.session_state.debug_log.append((question, debug_trace))
 
-            if error:
-                st.error(error)
-                answer_md = f"⚠️ {error}"
-            else:
-                answer_md = format_answer(result)
-                st.markdown(answer_md)
-                if result["status"] != "rejected_query":
-                    st.session_state.chat_history.append((question, result["answer"]))
+        if error:
+            answer_md = f"⚠️ {error}"
+        else:
+            answer_md = format_answer(result)
+            if result["status"] != "rejected_query":
+                st.session_state.chat_history.append((question, result["answer"]))
 
-        st.session_state.messages.append({"role": "assistant", "content": answer_md})
+        st.session_state.messages.append({"role": "assistant", "content": answer_md, "trace_id": trace_id})
+        st.rerun()
 
     render_sidebar(st.session_state.debug_log)
 
